@@ -1,5 +1,8 @@
+"use client";
+
 import { IdCard, HandHeart, Megaphone } from "lucide-react";
 import Button from "@/components/ui/Button";
+import FadeIn from "@/components/ui/FadeIn";
 import { BOOSTERHUB_URLS } from "@/lib/constants";
 
 const actions = [
@@ -43,35 +46,36 @@ export default function ActionCards() {
     <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 max-w-6xl mx-auto gap-8">
-          {actions.map((action) => {
+          {actions.map((action, index) => {
             const Icon = action.icon;
             return (
-              <div
-                key={action.title}
-                className={`group bg-white rounded-2xl shadow-xl p-8 border-t-8 ${action.borderColor} hover:shadow-glow hover:-translate-y-2 transition-all duration-300`}
-              >
+              <FadeIn key={action.title} delay={index * 0.1}>
                 <div
-                  className={`w-16 h-16 rounded-full bg-gray-100 ${action.iconBgHover} flex items-center justify-center mb-6 transition-colors duration-300`}
+                  className={`group bg-white rounded-2xl shadow-xl p-8 border-t-8 ${action.borderColor} hover:shadow-glow hover:-translate-y-2 transition-all duration-300`}
                 >
-                  <Icon className="w-8 h-8 text-gray-600 group-hover:text-white transition-colors duration-300" />
+                  <div
+                    className={`w-16 h-16 rounded-full bg-gray-100 ${action.iconBgHover} flex items-center justify-center mb-6 transition-colors duration-300`}
+                  >
+                    <Icon className="w-8 h-8 text-gray-600 group-hover:text-white transition-colors duration-300" />
+                  </div>
+
+                  <h3 className="font-oswald text-3xl uppercase mb-3">
+                    {action.title}
+                  </h3>
+
+                  <p className="text-gray-600 mb-6 leading-relaxed">
+                    {action.description}
+                  </p>
+
+                  <Button
+                    href={action.href}
+                    external={action.external}
+                    className="w-full"
+                  >
+                    {action.cta}
+                  </Button>
                 </div>
-
-                <h3 className="font-oswald text-3xl uppercase mb-3">
-                  {action.title}
-                </h3>
-
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  {action.description}
-                </p>
-
-                <Button
-                  href={action.href}
-                  external={action.external}
-                  className="w-full"
-                >
-                  {action.cta}
-                </Button>
-              </div>
+              </FadeIn>
             );
           })}
         </div>

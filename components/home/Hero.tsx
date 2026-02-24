@@ -1,4 +1,5 @@
 import Button from "@/components/ui/Button";
+import FadeIn from "@/components/ui/FadeIn";
 import { BOOSTERHUB_URLS } from "@/lib/constants";
 
 export default function Hero() {
@@ -14,29 +15,31 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-        <h1 className="text-5xl sm:text-7xl md:text-8xl font-bold leading-tight tracking-tight">
-          <span className="block text-white">ONE TOWN.</span>
-          <span className="block text-pc-red">ONE TEAM.</span>
-        </h1>
+        <FadeIn>
+          <h1 className="text-5xl sm:text-7xl md:text-8xl font-bold leading-tight tracking-tight">
+            <span className="block text-white">ONE TOWN.</span>
+            <span className="block text-pc-red">ONE TEAM.</span>
+          </h1>
 
-        <p className="mt-6 text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto">
-          Fueling excellence for Port Clinton athletes — from youth leagues to
-          varsity.
-        </p>
+          <p className="mt-6 text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto">
+            Fueling excellence for Port Clinton athletes — from youth leagues to
+            varsity.
+          </p>
 
-        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Button href={BOOSTERHUB_URLS.membership} external>
-            Become a Member
-          </Button>
-          <Button
-            href={BOOSTERHUB_URLS.donate}
-            variant="outline"
-            external
-            className="border-white text-white hover:bg-white hover:text-pc-dark"
-          >
-            Make a Donation
-          </Button>
-        </div>
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button href={BOOSTERHUB_URLS.membership} external>
+              Become a Member
+            </Button>
+            <Button
+              href={BOOSTERHUB_URLS.donate}
+              variant="outline"
+              external
+              className="border-white text-white hover:bg-white hover:text-pc-dark"
+            >
+              Make a Donation
+            </Button>
+          </div>
+        </FadeIn>
       </div>
     </section>
   );
