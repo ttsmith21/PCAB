@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap");
+
+@import "tailwindcss";
+
+@theme {
+  --color-pc-red: #EF2B24;
+  --color-pc-dark: #0f172a;
+  --font-sans: "Inter", sans-serif;
+  --font-oswald: "Oswald", sans-serif;
+  --shadow-glow: 0 0 20px rgba(239, 43, 36, 0.6);
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+}
+
+html {
+  scroll-behavior: smooth;
+}

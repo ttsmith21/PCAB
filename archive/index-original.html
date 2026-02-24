@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Port Clinton Athletic Boosters</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'pc-red': '#EF2B24',
+                        'pc-dark': '#0f172a',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        oswald: ['Oswald', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'glow': '0 0 20px rgba(239, 43, 36, 0.6)',
+                        'card-hover': '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts: Inter & Oswald -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .btn-text {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom Vignette */
+        .hero-vignette {
+            background: radial-gradient(circle at center, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.8) 100%);
+        }
+
+        /* Glassmorphism utility */
+        .glass {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Carbon Fiber Pattern */
+        .bg-carbon {
+            background-color: #0f172a;
+            background-image:
+                linear-gradient(45deg, #1e293b 25%, transparent 25%, transparent 75%, #1e293b 75%, #1e293b),
+                linear-gradient(45deg, #1e293b 25%, transparent 25%, transparent 75%, #1e293b 75%, #1e293b);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 antialiased selection:bg-pc-red selection:text-white">
+
+    <!-- Navbar: Glassmorphism -->
+    <nav class="fixed top-0 w-full z-50 glass transition-all duration-300">
+        <div class="container mx-auto px-4 md:px-8 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="h-full py-3 hover:scale-105 transition-transform duration-300">
+                <img src="https://pcathleticboosters.com/wp-content/uploads/2025/04/PORT-CLINTON.png"
+                    alt="Port Clinton Athletic Boosters Logo" class="h-full w-auto drop-shadow-sm">
+            </a>
+
+            <!-- Ghost Buttons -->
+            <div class="flex items-center gap-6">
+                <a href="https://pcathleticbooster.boosterhub.com/login"
+                    class="text-gray-800 font-oswald font-medium tracking-wide hover:text-pc-red transition-colors px-2 hidden sm:inline-block uppercase">
+                    Member Login
+                </a>
+                <a href="https://pcathleticbooster.boosterhub.com/store"
+                    class="btn-text bg-pc-red text-white py-2 px-6 rounded-full font-bold tracking-wider hover:bg-red-600 hover:shadow-glow hover:-translate-y-1 transition-all duration-300 shadow-md">
+                    Donate
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <!-- Mobile: relative with auto height. Desktop: fixed height with relative content. -->
+    <section
+        class="relative md:h-screen md:min-h-[700px] flex md:items-center justify-center bg-cover bg-center bg-no-repeat bg-fixed pb-24 md:pb-0 pt-32 md:pt-0"
+        style="background-image: url('http://pcathleticboosters.com/wp-content/uploads/2025/04/group-of-people-in-a-huddle-showing-unity-and-teamwork.-7322770-1024x683.jpg');">
+
+        <!-- Dynamic Vignette Overlay -->
+        <div class="absolute inset-0 hero-vignette mix-blend-multiply placeholder-opacity-95"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-black/30 opacity-90"></div>
+
+        <!-- Content -->
+        <div class="relative z-10 text-center text-white px-4 md:-mt-24 mb-10 md:mb-0" data-aos="fade-up"
+            data-aos-duration="1000">
+            <h1 class="text-5xl md:text-8xl lg:text-9xl font-bold tracking-tighter mb-4 drop-shadow-2xl leading-none">
+                ONE TOWN.<br /><span class="text-pc-red">ONE TEAM.</span>
+            </h1>
+            <p class="text-lg md:text-3xl font-light text-gray-100 max-w-3xl mx-auto tracking-wide drop-shadow-md">
+                Fueling excellence for Port Clinton Athletes.
+            </p>
+        </div>
+
+        <!-- Action Grid Container - Floats over the bottom boundary -->
+        <!-- Mobile: Stacked normally (relative). Desktop: Absolute floating. -->
+        <div class="relative md:absolute bottom-0 left-0 right-0 w-full z-20 px-4 md:translate-y-1/2">
+            <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl">
+
+                <!-- Card 1: Membership -->
+                <div class="bg-white/95 backdrop-blur rounded-2xl shadow-xl p-8 border-t-8 border-pc-red text-center group hover:shadow-glow hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-b from-red-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    </div>
+                    <div class="relative z-10">
+                        <div
+                            class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-pc-red group-hover:text-white transition-colors duration-300 shadow-inner">
+                            <i class="fa-solid fa-id-card text-2xl text-gray-700 group-hover:text-white"></i>
+                        </div>
+                        <h3 class="text-3xl font-bold mb-2 text-gray-900">Membership</h3>
+                        <p class="text-gray-600 mb-8 font-medium">Join the club. Fuel the team.</p>
+                        <a href="https://pcathleticbooster.boosterhub.com/membership"
+                            class="btn-text block w-full bg-pc-red text-white font-bold py-4 rounded-xl hover:bg-red-700 hover:shadow-lg transition-all transform active:scale-95">
+                            Join Now
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2: Volunteer -->
+                <div class="bg-white/95 backdrop-blur rounded-2xl shadow-xl p-8 border-t-8 border-pc-dark text-center group hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-b from-gray-100 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    </div>
+                    <div class="relative z-10">
+                        <div
+                            class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-pc-dark group-hover:text-white transition-colors duration-300 shadow-inner">
+                            <i class="fa-solid fa-hand-holding-heart text-2xl text-gray-700 group-hover:text-white"></i>
+                        </div>
+                        <h3 class="text-3xl font-bold mb-2 text-gray-900">Volunteer</h3>
+                        <p class="text-gray-600 mb-8 font-medium">Your time makes the difference.</p>
+                        <a href="https://pcathleticbooster.boosterhub.com/volunteer"
+                            class="btn-text block w-full bg-pc-dark text-white font-bold py-4 rounded-xl hover:bg-black hover:shadow-lg transition-all transform active:scale-95">
+                            Get Involved
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3: Sponsors -->
+                <div class="bg-white/95 backdrop-blur rounded-2xl shadow-xl p-8 border-t-8 border-pc-red text-center group hover:shadow-glow hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-b from-red-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    </div>
+                    <div class="relative z-10">
+                        <div
+                            class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-pc-red group-hover:text-white transition-colors duration-300 shadow-inner">
+                            <i class="fa-solid fa-bullhorn text-2xl text-gray-700 group-hover:text-white"></i>
+                        </div>
+                        <h3 class="text-3xl font-bold mb-2 text-gray-900">Sponsors</h3>
+                        <p class="text-gray-600 mb-8 font-medium">Partner with us for greatness.</p>
+                        <a href="https://pcathleticbooster.boosterhub.com/store"
+                            class="btn-text block w-full bg-pc-red text-white font-bold py-4 rounded-xl hover:bg-red-700 hover:shadow-lg transition-all transform active:scale-95">
+                            Become a Partner
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Spacer for the floating cards -->
+    <div class="hidden md:block h-40 bg-gray-50"></div>
+    <!-- Mobile spacer adjustment not strictly needed if we use relative positioning above, but keeps clean flow -->
+    <div class="md:hidden h-12 bg-gray-50"></div>
+
+    <!-- Sponsor Showcase (Digital Trophy Case) -->
+    <section class="py-16 bg-white border-b border-gray-200">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-2xl font-oswald font-bold text-gray-400 mb-8 uppercase tracking-widest" data-aos="fade-in">
+                Proud Community Partners</h2>
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-75 grayscale hover:grayscale-0 transition-all duration-500"
+                data-aos="zoom-in">
+                <!-- Placeholders using FontAwesome -->
+                <i class="fa-brands fa-nike text-5xl hover:text-gray-900 transition-colors cursor-pointer"
+                    title="Sponsor 1"></i>
+                <i class="fa-brands fa-aws text-5xl hover:text-gray-900 transition-colors cursor-pointer"
+                    title="Sponsor 2"></i>
+                <i class="fa-brands fa-google text-4xl hover:text-gray-900 transition-colors cursor-pointer"
+                    title="Sponsor 3"></i>
+                <i class="fa-brands fa-cocacola text-5xl hover:text-gray-900 transition-colors cursor-pointer"
+                    title="Sponsor 4"></i>
+                <i class="fa-solid fa-building-columns text-5xl text-gray-400 hover:text-gray-900 transition-colors cursor-pointer"
+                    title="Local Bank"></i>
+                <i class="fa-solid fa-pizza-slice text-5xl text-gray-400 hover:text-gray-900 transition-colors cursor-pointer"
+                    title="Local Pizza"></i>
+            </div>
+            <div class="mt-8">
+                <a href="https://pcathleticbooster.boosterhub.com/store"
+                    class="text-pc-red font-bold text-sm tracking-widest hover:underline uppercase">Join our partner
+                    network &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Evidence -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center mb-12" data-aos="fade-up">
+                <h2 class="text-4xl font-bold mb-4 text-gray-900">WHERE YOUR MONEY GOES</h2>
+                <p class="text-gray-600 text-lg">Your support translates directly into equipment, facilities, and
+                    opportunities for student athletes.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Impact Item 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-pc-red" data-aos="fade-up"
+                    data-aos-delay="100">
+                    <div class="h-40 bg-gray-200 mb-4 rounded-lg overflow-hidden flex items-center justify-center bg-cover bg-center"
+                        style="background-image: url('https://images.unsplash.com/photo-1577416412292-767dd9c7L330?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');">
+                        <!-- Fallback/Overlay -->
+                        <div class="bg-black/30 w-full h-full flex items-center justify-center">
+                            <span class="text-white font-oswald text-xl uppercase tracking-wider">Facilities</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Stadium Lights</h3>
+                    <p class="text-gray-600 text-sm">Upgraded LED lighting for night games, ensuring safety and
+                        broadcast quality.</p>
+                </div>
+                <!-- Impact Item 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-pc-red" data-aos="fade-up"
+                    data-aos-delay="200">
+                    <div class="h-40 bg-gray-200 mb-4 rounded-lg overflow-hidden flex items-center justify-center bg-cover bg-center"
+                        style="background-image: url('https://images.unsplash.com/photo-1551958219-acbc608c6377?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');">
+                        <div class="bg-black/30 w-full h-full flex items-center justify-center">
+                            <span class="text-white font-oswald text-xl uppercase tracking-wider">Performance</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Weight Room Refit</h3>
+                    <p class="text-gray-600 text-sm">New racks, weights, and flooring to build championship strength.
+                    </p>
+                </div>
+                <!-- Impact Item 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-pc-red" data-aos="fade-up"
+                    data-aos-delay="300">
+                    <div class="h-40 bg-gray-200 mb-4 rounded-lg overflow-hidden flex items-center justify-center bg-cover bg-center"
+                        style="background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');">
+                        <div class="bg-black/30 w-full h-full flex items-center justify-center">
+                            <span class="text-white font-oswald text-xl uppercase tracking-wider">Future</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">50 Scholarships</h3>
+                    <p class="text-gray-600 text-sm">Direct financial aid to ensuring every student can pay to play.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Placeholder (Live from the Field) -->
+    <section class="py-16 bg-white border-t border-gray-100">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-10 text-gray-900 tracking-tight" data-aos="fade-up">LIVE FROM THE FIELD
+            </h2>
+            <!-- SnapWidget / Social Feed Placeholder -->
+            <div class="max-w-5xl mx-auto bg-gray-50 rounded-3xl border-2 border-dashed border-gray-300 h-80 flex flex-col items-center justify-center text-gray-400 group hover:border-pc-red/50 transition-colors"
+                data-aos="zoom-in">
+                <i
+                    class="fa-solid fa-hashtag text-6xl mb-4 text-gray-300 group-hover:text-pc-red group-hover:scale-110 transition-all duration-300"></i>
+                <p class="text-xl font-oswald tracking-wide font-medium">Instagram Feed Loading...</p>
+                <div
+                    class="mt-4 px-6 py-2 bg-white rounded-full text-sm font-mono text-gray-500 shadow-sm border border-gray-200">
+                    Embed Widget Here (SnapWidget/Curator.io)
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership & Governance (Carbon Fiber Texture) -->
+    <section class="py-20 bg-carbon text-white border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                <!-- Board of Directors -->
+                <div data-aos="fade-right">
+                    <h3 class="text-2xl font-oswald font-bold text-pc-red mb-6 border-b border-gray-700 pb-2">LEADERSHIP
+                        BOARD</h3>
+                    <ul class="space-y-4 text-gray-300">
+                        <li class="flex justify-between items-center"><span
+                                class="font-bold text-white">President</span> <span>Tyson Smith</span></li>
+                        <li class="flex justify-between items-center"><span class="font-bold text-white">Vice
+                                President</span> <span>Brennan Madison</span></li>
+                        <li class="flex justify-between items-center"><span
+                                class="font-bold text-white">Treasurer</span> <span>Terry Dunn</span></li>
+                    </ul>
+                    <div class="mt-8 text-sm">
+                        <a href="#" class="text-gray-500 hover:text-white underline decoration-dotted">View Bylaws &
+                            Governance Docs</a>
+                    </div>
+                </div>
+
+                <!-- Team Representatives -->
+                <div data-aos="fade-left">
+                    <h3 class="text-2xl font-oswald font-bold text-pc-red mb-6 border-b border-gray-700 pb-2">TEAM
+                        REPRESENTATIVES</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-gray-300 text-sm">
+                            <thead>
+                                <tr class="text-gray-500 border-b border-gray-700">
+                                    <th class="pb-2 font-normal uppercase tracking-wider">Sport</th>
+                                    <th class="pb-2 font-normal uppercase tracking-wider">Rep Name</th>
+                                    <th class="pb-2 font-normal uppercase tracking-wider text-right">Contact</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-800/50">
+                                <tr class="group hover:bg-gray-800/30 transition-colors">
+                                    <td class="py-3 font-medium text-white">Football</td>
+                                    <td class="py-3">John Doe</td>
+                                    <td class="py-3 text-right"><a href="mailto:football@example.com"
+                                            class="text-pc-red hover:text-white"><i
+                                                class="fa-regular fa-envelope"></i></a></td>
+                                </tr>
+                                <tr class="group hover:bg-gray-800/30 transition-colors">
+                                    <td class="py-3 font-medium text-white">Basketball (Boys)</td>
+                                    <td class="py-3">Mike Smith</td>
+                                    <td class="py-3 text-right"><a href="mailto:bball@example.com"
+                                            class="text-pc-red hover:text-white"><i
+                                                class="fa-regular fa-envelope"></i></a></td>
+                                </tr>
+                                <tr class="group hover:bg-gray-800/30 transition-colors">
+                                    <td class="py-3 font-medium text-white">Basketball (Girls)</td>
+                                    <td class="py-3">Jane Miller</td>
+                                    <td class="py-3 text-right"><a href="mailto:gball@example.com"
+                                            class="text-pc-red hover:text-white"><i
+                                                class="fa-regular fa-envelope"></i></a></td>
+                                </tr>
+                                <tr class="group hover:bg-gray-800/30 transition-colors">
+                                    <td class="py-3 font-medium text-white">Soccer</td>
+                                    <td class="py-3">Sarah Jones</td>
+                                    <td class="py-3 text-right"><a href="mailto:soccer@example.com"
+                                            class="text-pc-red hover:text-white"><i
+                                                class="fa-regular fa-envelope"></i></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="mt-4 text-center">
+                            <span class="text-xs text-gray-500 italic">Scroll for more if needed</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4 text-center">
+
+            <img src="https://pcathleticboosters.com/wp-content/uploads/2025/04/PORT-CLINTON.png" alt="Logo"
+                class="h-12 w-auto mb-6 mx-auto brightness-0 invert opacity-50">
+
+            <p class="text-gray-600 text-sm mb-4">
+                Port Clinton Athletic Boosters is a 501(c)(3) non-profit organization.
+            </p>
+            <p class="text-gray-700 text-xs">
+                &copy; 2025 Port Clinton Athletic Boosters. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- AOS Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            offset: 100,
+            duration: 800,
+        });
+    </script>
+</body>
+
+</html>
