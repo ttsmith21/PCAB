@@ -1,0 +1,47 @@
+{
+  "plugin_root": "C:\\Users\\tsmith\\.claude\\plugins\\cache\\piercelamb-plugins\\deep-implement\\0.2.0",
+  "sections_dir": "C:\\Users\\tsmith\\OneDrive - Northern Manufacturing Co., Inc\\Documents\\GitHub\\PC-Boosters-Web\\docs\\plans\\02-communication-hub\\sections",
+  "target_dir": "C:\\Users\\tsmith\\OneDrive - Northern Manufacturing Co., Inc\\Documents\\GitHub\\PC-Boosters-Web",
+  "state_dir": "C:\\Users\\tsmith\\OneDrive - Northern Manufacturing Co., Inc\\Documents\\GitHub\\PC-Boosters-Web\\docs\\plans\\02-communication-hub\\implementation",
+  "git_root": "C:\\Users\\tsmith\\OneDrive - Northern Manufacturing Co., Inc\\Documents\\GitHub\\PC-Boosters-Web",
+  "commit_style": "conventional",
+  "test_command": "uv run pytest",
+  "sections": [
+    "section-01-constants-and-dependencies",
+    "section-02-signup-form",
+    "section-03-join-pages",
+    "section-04-site-wide-ctas",
+    "section-05-build-verification"
+  ],
+  "sections_state": {
+    "section-01-constants-and-dependencies": {
+      "status": "complete",
+      "commit_hash": "442b58bd745ba6d2a744c3b6a6260c6ef3c90b40"
+    },
+    "section-02-signup-form": {
+      "status": "complete",
+      "commit_hash": "a455f2c35a80d324f8407cdd2056bebf2c3c587c"
+    },
+    "section-03-join-pages": {
+      "status": "complete",
+      "commit_hash": "bf49e0f6067c2dc603c738ab8c966f66f0071361"
+    },
+    "section-04-site-wide-ctas": {
+      "status": "complete",
+      "commit_hash": "3e3f205"
+    },
+    "section-05-build-verification": {
+      "status": "complete",
+      "commit_hash": "0f94cbf"
+    }
+  },
+  "pre_commit": {
+    "present": false,
+    "type": "none",
+    "config_file": null,
+    "native_hook": null,
+    "may_modify_files": false,
+    "detected_formatters": []
+  },
+  "created_at": "2026-02-24T17:13:19.751550+00:00"
+}
