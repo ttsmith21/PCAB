@@ -382,3 +382,12 @@ This section produces one new file:
 | `components/ui/SignupForm.tsx` | **Create** -- Client component with full Mailchimp signup form |
 
 The component imports from `lib/constants.ts` (Section 01) and `lib/data/sports.ts` (existing). It is consumed by `app/join/page.tsx` (Section 03). No other files are created or modified in this section.
+
+## Code Review Changes
+
+- Fixed JSX `&amp;` rendering bug in TCPA consent text (used `&` directly)
+- Removed dead validation code for commPref (always initialized to "email")
+- Added `clearError()` helper to clear individual field errors on input change
+- Aligned level options lookup to use display labels (matching sports pattern)
+- Added hidden COMM_PREF fallback input when phone is empty (defaults to "email")
+- Kept controlled inputs (user decision: JS always available in Next.js)
