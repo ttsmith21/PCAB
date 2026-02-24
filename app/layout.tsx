@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
   title: "Port Clinton Athletic Boosters",
@@ -15,7 +17,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-gray-50 text-gray-800 antialiased selection:bg-pc-red selection:text-white">
+        <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
