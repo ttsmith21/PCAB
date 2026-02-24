@@ -39,7 +39,9 @@
       "WebFetch(domain:blog.grasshoppersignup.com)",
       "WebFetch(domain:www.sender.net)",
       "WebFetch(domain:mailsoftly.com)",
-      "WebFetch(domain:www.emailvendorselection.com)"
+      "WebFetch(domain:www.emailvendorselection.com)",
+      "WebFetch(domain:dev.to)",
+      "WebFetch(domain:dohost.us)"
     ]
   }
 }

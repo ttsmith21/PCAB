@@ -1,0 +1,30 @@
+{
+  "plugin_root": "C:\\Users\\tsmith\\.claude\\plugins\\cache\\piercelamb-plugins\\deep-implement\\0.2.0",
+  "sections_dir": "C:\\Users\\tsmith\\OneDrive - Northern Manufacturing Co., Inc\\Documents\\GitHub\\PC-Boosters-Web\\docs\\plans\\03-payment-integration\\sections",
+  "target_dir": "C:\\Users\\tsmith\\OneDrive - Northern Manufacturing Co., Inc\\Documents\\GitHub\\PC-Boosters-Web",
+  "state_dir": "C:\\Users\\tsmith\\OneDrive - Northern Manufacturing Co., Inc\\Documents\\GitHub\\PC-Boosters-Web\\docs\\plans\\03-payment-integration\\implementation",
+  "git_root": "C:\\Users\\tsmith\\OneDrive - Northern Manufacturing Co., Inc\\Documents\\GitHub\\PC-Boosters-Web",
+  "commit_style": "conventional",
+  "test_command": "uv run pytest",
+  "sections": [
+    "section-01-test-setup",
+    "section-02-constants",
+    "section-03-buy-button",
+    "section-04-payment-thanks",
+    "section-05-navigation",
+    "section-06-membership",
+    "section-07-initiatives",
+    "section-08-other-pages",
+    "section-09-cleanup"
+  ],
+  "sections_state": {},
+  "pre_commit": {
+    "present": false,
+    "type": "none",
+    "config_file": null,
+    "native_hook": null,
+    "may_modify_files": false,
+    "detected_formatters": []
+  },
+  "created_at": "2026-02-24T23:10:31.425082+00:00"
+}
