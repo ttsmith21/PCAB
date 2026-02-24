@@ -4,9 +4,15 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
-  title: "Port Clinton Athletic Boosters",
+  title: {
+    default: "Port Clinton Athletic Boosters",
+    template: "%s | PC Athletic Boosters",
+  },
   description:
     "Supporting Port Clinton student-athletes. One Town. One Team.",
+  openGraph: {
+    siteName: "Port Clinton Athletic Boosters",
+  },
 };
 
 export default function RootLayout({

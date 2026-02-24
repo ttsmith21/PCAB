@@ -1,7 +1,15 @@
+import type { Metadata } from "next";
 import { Calendar } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Card from "@/components/ui/Card";
 import FacebookFeed from "@/components/ui/FacebookFeed";
+import FadeIn from "@/components/ui/FadeIn";
+
+export const metadata: Metadata = {
+  title: "News & Events",
+  description:
+    "Stay up to date with the latest news, events, and announcements from the Port Clinton Athletic Boosters.",
+};
 
 export default function NewsPage() {
   const events = [
@@ -30,13 +38,15 @@ export default function NewsPage() {
       {/* Hero */}
       <section className="pt-32 pb-20 bg-pc-dark text-white">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4">
-            News &amp; Events
-          </h1>
-          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            Stay up to date with the latest from the Port Clinton Athletic
-            Boosters.
-          </p>
+          <FadeIn>
+            <h1 className="text-5xl md:text-6xl font-bold mb-4">
+              News &amp; Events
+            </h1>
+            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+              Stay up to date with the latest from the Port Clinton Athletic
+              Boosters.
+            </p>
+          </FadeIn>
         </div>
       </section>
 
@@ -47,7 +57,9 @@ export default function NewsPage() {
             title="Latest Updates"
             subtitle="Follow along with our latest news and announcements from Facebook."
           />
-          <FacebookFeed width={500} height={700} />
+          <FadeIn>
+            <FacebookFeed width={500} height={700} />
+          </FadeIn>
         </div>
       </section>
 
@@ -59,21 +71,23 @@ export default function NewsPage() {
             subtitle="Mark your calendar for these upcoming booster events."
           />
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {events.map((event) => (
-              <Card key={event.title}>
-                <div className="flex flex-col items-center text-center">
-                  <div className="w-16 h-16 bg-pc-red/10 rounded-full flex items-center justify-center mb-4">
-                    <Calendar className="w-8 h-8 text-pc-red" />
+            {events.map((event, index) => (
+              <FadeIn key={event.title} delay={index * 0.1}>
+                <Card>
+                  <div className="flex flex-col items-center text-center">
+                    <div className="w-16 h-16 bg-pc-red/10 rounded-full flex items-center justify-center mb-4">
+                      <Calendar className="w-8 h-8 text-pc-red" />
+                    </div>
+                    <p className="text-pc-red font-semibold text-sm uppercase tracking-wider mb-1">
+                      {event.date}
+                    </p>
+                    <h3 className="font-oswald text-xl font-bold uppercase mb-2">
+                      {event.title}
+                    </h3>
+                    <p className="text-gray-600">{event.description}</p>
                   </div>
-                  <p className="text-pc-red font-semibold text-sm uppercase tracking-wider mb-1">
-                    {event.date}
-                  </p>
-                  <h3 className="font-oswald text-xl font-bold uppercase mb-2">
-                    {event.title}
-                  </h3>
-                  <p className="text-gray-600">{event.description}</p>
-                </div>
-              </Card>
+                </Card>
+              </FadeIn>
             ))}
           </div>
         </div>

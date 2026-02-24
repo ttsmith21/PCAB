@@ -1,8 +1,16 @@
+import type { Metadata } from "next";
 import { Trophy, Users, Heart, Mail } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Card from "@/components/ui/Card";
+import FadeIn from "@/components/ui/FadeIn";
 import { boardMembers } from "@/lib/data/board";
 import { teamReps } from "@/lib/data/team-reps";
+
+export const metadata: Metadata = {
+  title: "About Us",
+  description:
+    "Learn about the Port Clinton Athletic Boosters mission, leadership board, and team representatives dedicated to supporting student-athletes.",
+};
 
 export default function AboutPage() {
   const pillars = [
@@ -31,12 +39,14 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="pt-32 pb-20 bg-pc-dark text-white">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4">About Us</h1>
-          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            The Port Clinton Athletic Boosters is a 501(c)(3) nonprofit
-            dedicated to fueling excellence for every student-athlete in our
-            community.
-          </p>
+          <FadeIn>
+            <h1 className="text-5xl md:text-6xl font-bold mb-4">About Us</h1>
+            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+              The Port Clinton Athletic Boosters is a 501(c)(3) nonprofit
+              dedicated to fueling excellence for every student-athlete in our
+              community.
+            </p>
+          </FadeIn>
         </div>
       </section>
 
@@ -48,18 +58,20 @@ export default function AboutPage() {
             subtitle="Three pillars that guide everything we do."
           />
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {pillars.map((pillar) => (
-              <Card key={pillar.title}>
-                <div className="flex flex-col items-center text-center">
-                  <div className="w-16 h-16 bg-pc-red/10 rounded-full flex items-center justify-center mb-4">
-                    <pillar.icon className="w-8 h-8 text-pc-red" />
+            {pillars.map((pillar, index) => (
+              <FadeIn key={pillar.title} delay={index * 0.1}>
+                <Card>
+                  <div className="flex flex-col items-center text-center">
+                    <div className="w-16 h-16 bg-pc-red/10 rounded-full flex items-center justify-center mb-4">
+                      <pillar.icon className="w-8 h-8 text-pc-red" />
+                    </div>
+                    <h3 className="font-oswald text-xl font-bold uppercase mb-2">
+                      {pillar.title}
+                    </h3>
+                    <p className="text-gray-600">{pillar.description}</p>
                   </div>
-                  <h3 className="font-oswald text-xl font-bold uppercase mb-2">
-                    {pillar.title}
-                  </h3>
-                  <p className="text-gray-600">{pillar.description}</p>
-                </div>
-              </Card>
+                </Card>
+              </FadeIn>
             ))}
           </div>
         </div>
@@ -73,23 +85,25 @@ export default function AboutPage() {
             subtitle="Dedicated volunteers leading our mission forward."
           />
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {boardMembers.map((member) => (
-              <Card key={member.name}>
-                <div className="flex flex-col items-center text-center">
-                  <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mb-4">
-                    <span className="text-2xl font-bold text-gray-400">
-                      {member.name
-                        .split(" ")
-                        .map((n) => n[0])
-                        .join("")}
-                    </span>
+            {boardMembers.map((member, index) => (
+              <FadeIn key={member.name} delay={index * 0.1}>
+                <Card>
+                  <div className="flex flex-col items-center text-center">
+                    <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mb-4">
+                      <span className="text-2xl font-bold text-gray-400">
+                        {member.name
+                          .split(" ")
+                          .map((n) => n[0])
+                          .join("")}
+                      </span>
+                    </div>
+                    <h3 className="font-oswald text-lg font-bold uppercase">
+                      {member.name}
+                    </h3>
+                    <p className="text-pc-red font-semibold">{member.role}</p>
                   </div>
-                  <h3 className="font-oswald text-lg font-bold uppercase">
-                    {member.name}
-                  </h3>
-                  <p className="text-pc-red font-semibold">{member.role}</p>
-                </div>
-              </Card>
+                </Card>
+              </FadeIn>
             ))}
           </div>
         </div>
@@ -103,43 +117,45 @@ export default function AboutPage() {
             subtitle="Your point of contact for each sport."
             light
           />
-          <div className="max-w-4xl mx-auto overflow-x-auto">
-            <table className="w-full text-left">
-              <thead>
-                <tr className="border-b border-white/20">
-                  <th className="font-oswald uppercase tracking-wider py-4 px-4 text-gray-300">
-                    Sport
-                  </th>
-                  <th className="font-oswald uppercase tracking-wider py-4 px-4 text-gray-300">
-                    Representative
-                  </th>
-                  <th className="font-oswald uppercase tracking-wider py-4 px-4 text-gray-300">
-                    Contact
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {teamReps.map((rep) => (
-                  <tr
-                    key={rep.sport}
-                    className="border-b border-white/10 hover:bg-white/5 transition-colors"
-                  >
-                    <td className="py-4 px-4 font-semibold">{rep.sport}</td>
-                    <td className="py-4 px-4">{rep.name}</td>
-                    <td className="py-4 px-4">
-                      <a
-                        href={`mailto:${rep.email}`}
-                        className="inline-flex items-center gap-2 text-pc-red hover:text-red-400 transition-colors"
-                      >
-                        <Mail className="w-4 h-4" />
-                        <span className="hidden sm:inline">{rep.email}</span>
-                      </a>
-                    </td>
+          <FadeIn>
+            <div className="max-w-4xl mx-auto overflow-x-auto">
+              <table className="w-full text-left">
+                <thead>
+                  <tr className="border-b border-white/20">
+                    <th className="font-oswald uppercase tracking-wider py-4 px-4 text-gray-300">
+                      Sport
+                    </th>
+                    <th className="font-oswald uppercase tracking-wider py-4 px-4 text-gray-300">
+                      Representative
+                    </th>
+                    <th className="font-oswald uppercase tracking-wider py-4 px-4 text-gray-300">
+                      Contact
+                    </th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                </thead>
+                <tbody>
+                  {teamReps.map((rep) => (
+                    <tr
+                      key={rep.sport}
+                      className="border-b border-white/10 hover:bg-white/5 transition-colors"
+                    >
+                      <td className="py-4 px-4 font-semibold">{rep.sport}</td>
+                      <td className="py-4 px-4">{rep.name}</td>
+                      <td className="py-4 px-4">
+                        <a
+                          href={`mailto:${rep.email}`}
+                          className="inline-flex items-center gap-2 text-pc-red hover:text-red-400 transition-colors"
+                        >
+                          <Mail className="w-4 h-4" />
+                          <span className="hidden sm:inline">{rep.email}</span>
+                        </a>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </FadeIn>
         </div>
       </section>
     </main>

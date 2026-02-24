@@ -1,8 +1,16 @@
+import type { Metadata } from "next";
 import { ShoppingBag } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
+import FadeIn from "@/components/ui/FadeIn";
 import { BOOSTERHUB_URLS } from "@/lib/constants";
+
+export const metadata: Metadata = {
+  title: "Store",
+  description:
+    "Shop official Port Clinton Athletic Boosters spirit wear. T-shirts, hoodies, hats, and game day gear for the whole family.",
+};
 
 export default function StorePage() {
   const products = [
@@ -37,10 +45,12 @@ export default function StorePage() {
       {/* Hero */}
       <section className="pt-32 pb-20 bg-pc-dark text-white">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4">Gear Up</h1>
-          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            Show your Redskin pride with official PC Athletic Boosters gear.
-          </p>
+          <FadeIn>
+            <h1 className="text-5xl md:text-6xl font-bold mb-4">Gear Up</h1>
+            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+              Show your Redskin pride with official PC Athletic Boosters gear.
+            </p>
+          </FadeIn>
         </div>
       </section>
 
@@ -52,18 +62,20 @@ export default function StorePage() {
             subtitle="Browse our collection of official Port Clinton Athletic Boosters merchandise."
           />
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {products.map((product) => (
-              <Card key={product.title}>
-                <div className="flex flex-col items-center text-center">
-                  <div className="h-48 w-full bg-gray-200 rounded-xl flex items-center justify-center mb-6">
-                    <ShoppingBag className="w-16 h-16 text-gray-400" />
+            {products.map((product, index) => (
+              <FadeIn key={product.title} delay={index * 0.1}>
+                <Card>
+                  <div className="flex flex-col items-center text-center">
+                    <div className="h-48 w-full bg-gray-200 rounded-xl flex items-center justify-center mb-6">
+                      <ShoppingBag className="w-16 h-16 text-gray-400" />
+                    </div>
+                    <h3 className="font-oswald text-xl font-bold uppercase mb-2">
+                      {product.title}
+                    </h3>
+                    <p className="text-gray-600">{product.description}</p>
                   </div>
-                  <h3 className="font-oswald text-xl font-bold uppercase mb-2">
-                    {product.title}
-                  </h3>
-                  <p className="text-gray-600">{product.description}</p>
-                </div>
-              </Card>
+                </Card>
+              </FadeIn>
             ))}
           </div>
         </div>
@@ -72,18 +84,20 @@ export default function StorePage() {
       {/* CTA */}
       <section className="py-16 bg-pc-dark text-white text-center">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Ready to Shop?
-          </h2>
-          <p className="text-gray-300 mb-8 max-w-xl mx-auto">
-            Browse our full catalog and checkout on our secure store.
-          </p>
-          <Button href={BOOSTERHUB_URLS.store} external>
-            Shop Now
-          </Button>
-          <p className="text-sm text-gray-400 mt-4">
-            You&apos;ll be taken to our online store to browse and purchase.
-          </p>
+          <FadeIn>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Ready to Shop?
+            </h2>
+            <p className="text-gray-300 mb-8 max-w-xl mx-auto">
+              Browse our full catalog and checkout on our secure store.
+            </p>
+            <Button href={BOOSTERHUB_URLS.store} external>
+              Shop Now
+            </Button>
+            <p className="text-sm text-gray-400 mt-4">
+              You&apos;ll be taken to our online store to browse and purchase.
+            </p>
+          </FadeIn>
         </div>
       </section>
     </main>
