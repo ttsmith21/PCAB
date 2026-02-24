@@ -3,11 +3,16 @@
 @import "tailwindcss";
 
 @theme {
-  --color-pc-red: #EF2B24;
-  --color-pc-dark: #0f172a;
+  --color-pc-red: #CC0033;
+  --color-pc-dark: #111111;
+  --color-pc-red-dark: #A30B2B;
+  --color-pc-red-light: #FEF2F2;
+  --color-pc-gray: #6B7280;
+  --color-pc-gray-light: #F3F4F6;
+  --color-pc-gray-dark: #374151;
   --font-sans: "Inter", sans-serif;
   --font-oswald: "Oswald", sans-serif;
-  --shadow-glow: 0 0 20px rgba(239, 43, 36, 0.6);
+  --shadow-glow: 0 0 20px rgba(204, 0, 51, 0.6);
 }
 
 body {

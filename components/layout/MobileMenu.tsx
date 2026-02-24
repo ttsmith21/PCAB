@@ -56,7 +56,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           target="_blank"
           rel="noopener noreferrer"
           onClick={onClose}
-          className="block w-full text-center font-oswald text-lg uppercase tracking-wide text-white bg-pc-red rounded-full py-3 hover:bg-red-700 transition-colors"
+          className="block w-full text-center font-oswald text-lg uppercase tracking-wide text-white bg-pc-red rounded-full py-3 hover:bg-pc-red-dark transition-colors"
         >
           Donate
         </a>
