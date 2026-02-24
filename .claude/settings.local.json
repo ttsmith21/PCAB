@@ -2,7 +2,37 @@
   "permissions": {
     "allow": [
       "Bash(cd:*)",
-      "Bash(cd \"C:\\\\Users\\\\tsmith\\\\OneDrive - Northern Manufacturing Co., Inc\\\\Documents\\\\GitHub\\\\PC-Boosters-Web\" && rm -rf .next && npm run build 2>&1)"
+      "Bash(cd \"C:\\\\Users\\\\tsmith\\\\OneDrive - Northern Manufacturing Co., Inc\\\\Documents\\\\GitHub\\\\PC-Boosters-Web\" && rm -rf .next && npm run build 2>&1)",
+      "WebFetch(domain:pcathleticboosters.com)",
+      "WebFetch(domain:hs.pccsd.net)",
+      "WebSearch",
+      "WebFetch(domain:www.pccsd.net)",
+      "WebFetch(domain:en.wikipedia.org)",
+      "WebFetch(domain:www.maxpreps.com)",
+      "WebFetch(domain:www.thebeacon.net)",
+      "WebFetch(domain:www.boosterhub.com)",
+      "WebFetch(domain:joinit.com)",
+      "WebFetch(domain:www.boosterspark.com)",
+      "WebFetch(domain:membershiptoolkit.com)",
+      "WebFetch(domain:apps.apple.com)",
+      "WebFetch(domain:www.konstella.com)",
+      "WebFetch(domain:docs.stripe.com)",
+      "WebFetch(domain:help.membershiptoolkit.com)",
+      "WebFetch(domain:boosterhub.helpjuice.com)",
+      "WebFetch(domain:app.boosterhub.com)",
+      "WebFetch(domain:dev.groupme.com)",
+      "WebFetch(domain:support.microsoft.com)",
+      "WebFetch(domain:mailchimp.com)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:www.capterra.com)",
+      "WebFetch(domain:groupme-js.github.io)",
+      "WebFetch(domain:www.getapp.com)",
+      "WebFetch(domain:groupme.com)",
+      "WebFetch(domain:support.stripe.com)",
+      "WebFetch(domain:lumaverse.com)",
+      "WebFetch(domain:www.signupgenius.com)",
+      "WebFetch(domain:sourceforge.net)",
+      "WebFetch(domain:www.softwareadvice.com)"
     ]
   }
 }
