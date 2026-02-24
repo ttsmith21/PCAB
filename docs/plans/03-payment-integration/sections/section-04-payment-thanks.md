@@ -137,8 +137,14 @@ Stripe appends a `{CHECKOUT_SESSION_ID}` query parameter to the redirect URL aft
 
 ## Checklist
 
-- [ ] Create `__tests__/app/payment/thanks/page.test.tsx` with the 5 test cases
-- [ ] Run tests -- they should all fail (red phase)
-- [ ] Create `app/payment/thanks/page.tsx` following the structure and patterns above
-- [ ] Run tests -- they should all pass (green phase)
-- [ ] Verify the page builds correctly with `npm run build`
+- [x] Create `__tests__/app/payment/thanks/page.test.tsx` with the 5 test cases
+- [x] Run tests -- they should all fail (red phase) -- 5 tests failed as expected
+- [x] Create `app/payment/thanks/page.tsx` following the structure and patterns above
+- [x] Run tests -- they should all pass (green phase) -- 5 tests passed
+- [ ] Verify the page builds correctly with `npm run build` (deferred to section-09)
+
+## Implementation Notes
+
+- Implementation matched the plan exactly, following the /join/thanks page pattern
+- 4-step "Next Steps" card: email receipt, mailing list, Facebook, Customer Portal
+- FadeIn wrapper from framer-motion produces harmless `whileInView` warning in tests
