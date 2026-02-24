@@ -1,8 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Facebook, Mail } from "lucide-react";
+import { Facebook, Mail, Users, UserPlus } from "lucide-react";
 import { navLinks } from "@/lib/data/nav-links";
-import { SITE_CONFIG, BOOSTERHUB_URLS } from "@/lib/constants";
+import { SITE_CONFIG, BOOSTERHUB_URLS, COMMUNITY_URLS } from "@/lib/constants";
 
 export default function Footer() {
   const quickLinks = navLinks.slice(0, 6);
@@ -58,8 +58,28 @@ export default function Footer() {
                   className="flex items-center gap-2 text-gray-400 text-sm hover:text-white transition-colors"
                 >
                   <Facebook className="h-5 w-5" />
-                  <span>Facebook</span>
+                  <span>Facebook Page</span>
                 </a>
+              </li>
+              <li>
+                <a
+                  href={COMMUNITY_URLS.facebookGroup}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-gray-400 text-sm hover:text-white transition-colors"
+                >
+                  <Users className="h-5 w-5" />
+                  <span>Community Group</span>
+                </a>
+              </li>
+              <li>
+                <Link
+                  href="/join"
+                  className="flex items-center gap-2 text-gray-400 text-sm hover:text-white transition-colors"
+                >
+                  <UserPlus className="h-5 w-5" />
+                  <span>Join Our Community</span>
+                </Link>
               </li>
               <li>
                 <a

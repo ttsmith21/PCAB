@@ -323,3 +323,7 @@ export const COMMUNITY_URLS = {
 | `components/home/ActionCards.tsx` | Add `COMMUNITY_URLS` to import; change volunteer card href from `BOOSTERHUB_URLS.volunteer` to `COMMUNITY_URLS.signupGenius` |
 
 No new files are created in this section.
+
+## Code Review Changes
+
+- Added `list-disc list-inside` to homepage bullet list (Tailwind reset strips default list-style)

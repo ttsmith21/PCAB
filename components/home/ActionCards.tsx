@@ -3,7 +3,7 @@
 import { IdCard, HandHeart, Megaphone } from "lucide-react";
 import Button from "@/components/ui/Button";
 import FadeIn from "@/components/ui/FadeIn";
-import { BOOSTERHUB_URLS } from "@/lib/constants";
+import { BOOSTERHUB_URLS, COMMUNITY_URLS } from "@/lib/constants";
 
 const actions = [
   {
@@ -22,7 +22,7 @@ const actions = [
     title: "Volunteer",
     description:
       "Give your time at concession stands, events, and fundraisers. Every hour you give goes directly to our kids.",
-    href: BOOSTERHUB_URLS.volunteer,
+    href: COMMUNITY_URLS.signupGenius,
     external: true,
     cta: "Sign Up",
     borderColor: "border-pc-dark",

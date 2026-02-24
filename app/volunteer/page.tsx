@@ -4,7 +4,7 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import FadeIn from "@/components/ui/FadeIn";
-import { BOOSTERHUB_URLS } from "@/lib/constants";
+import { COMMUNITY_URLS } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Volunteer",
@@ -195,12 +195,17 @@ export default function VolunteerPage() {
             <p className="text-gray-300 mb-8 max-w-xl mx-auto">
               Sign up today and start making an impact for Port Clinton athletics.
             </p>
-            <Button href={BOOSTERHUB_URLS.volunteer} external>
+            <Button href={COMMUNITY_URLS.signupGenius} external>
               Sign Up to Volunteer
             </Button>
             <p className="text-sm text-gray-400 mt-4">
-              You&apos;ll be taken to our volunteer portal to sign up.
+              You&apos;ll be taken to SignUpGenius to choose your volunteer role.
             </p>
+            <div className="mt-6">
+              <Button href="/join" variant="outline">
+                Join Our Community
+              </Button>
+            </div>
           </FadeIn>
         </div>
       </section>

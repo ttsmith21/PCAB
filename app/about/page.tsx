@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Trophy, Users, Heart } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Card from "@/components/ui/Card";
+import Button from "@/components/ui/Button";
 import FadeIn from "@/components/ui/FadeIn";
 import { officers, trustees } from "@/lib/data/board";
 import { getSportsBySeason, seasonLabels, type Season } from "@/lib/data/sports";
@@ -172,6 +173,25 @@ export default function AboutPage() {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Community CTA */}
+      <section className="py-16 bg-white text-center">
+        <div className="container mx-auto px-4">
+          <FadeIn>
+            <SectionHeading
+              title="Get Involved"
+              subtitle="Stay connected with everything happening in PC athletics."
+            />
+            <div className="max-w-xl mx-auto">
+              <p className="text-gray-600 mb-8">
+                Sign up for targeted updates about the sports, age groups, and
+                activities that matter to your family.
+              </p>
+              <Button href="/join">Join Our Community</Button>
+            </div>
+          </FadeIn>
         </div>
       </section>
 

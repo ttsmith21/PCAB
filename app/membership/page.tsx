@@ -185,6 +185,24 @@ export default function MembershipPage() {
         </div>
       </section>
 
+      {/* Stay Connected CTA */}
+      <section className="py-16 bg-white text-center">
+        <div className="container mx-auto px-4">
+          <FadeIn>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Not Ready to Become a Member?
+            </h2>
+            <p className="text-gray-600 mb-8 max-w-xl mx-auto">
+              Stay connected with PC athletics — get targeted updates for
+              the sports and age groups you care about.
+            </p>
+            <Button href="/join" variant="outline">
+              Join Our Community
+            </Button>
+          </FadeIn>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-16 bg-pc-dark text-white text-center">
         <div className="container mx-auto px-4">
