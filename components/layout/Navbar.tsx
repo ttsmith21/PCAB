@@ -90,7 +90,7 @@ export default function Navbar() {
                 href={BOOSTERHUB_URLS.donate}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block font-oswald text-sm uppercase tracking-wide text-white bg-pc-red rounded-full px-5 py-2 hover:bg-red-700 transition-colors"
+                className="inline-block font-oswald text-sm uppercase tracking-wide text-white bg-pc-red rounded-full px-5 py-2 hover:bg-pc-red-dark transition-colors"
               >
                 Donate
               </a>

@@ -19,7 +19,7 @@ export default function Button({
     "font-oswald inline-block font-bold text-sm tracking-wider uppercase py-3 px-8 rounded-full transition-all duration-300 text-center";
 
   const variants = {
-    primary: "bg-pc-red text-white hover:bg-red-600 hover:shadow-glow hover:-translate-y-0.5 shadow-md",
+    primary: "bg-pc-red text-white hover:bg-pc-red-dark hover:shadow-glow hover:-translate-y-0.5 shadow-md",
     secondary: "bg-pc-dark text-white hover:bg-black hover:shadow-lg hover:-translate-y-0.5",
     outline: "border-2 border-pc-red text-pc-red hover:bg-pc-red hover:text-white",
   };

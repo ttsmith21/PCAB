@@ -154,7 +154,7 @@ export default function ResourcesPage() {
                 </p>
                 <a
                   href={`mailto:${SITE_CONFIG.email}`}
-                  className="text-pc-red font-semibold text-lg hover:text-red-600 transition-colors"
+                  className="text-pc-red font-semibold text-lg hover:text-pc-red-dark transition-colors"
                 >
                   {SITE_CONFIG.email}
                 </a>
