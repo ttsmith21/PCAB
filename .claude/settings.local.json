@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd:*)",
+      "Bash(cd \"C:\\\\Users\\\\tsmith\\\\OneDrive - Northern Manufacturing Co., Inc\\\\Documents\\\\GitHub\\\\PC-Boosters-Web\" && rm -rf .next && npm run build 2>&1)"
+    ]
+  }
+}
