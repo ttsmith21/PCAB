@@ -41,7 +41,8 @@ export default function SignupForm() {
   function clearError(field: string) {
     setErrors((prev) => {
       if (!(field in prev)) return prev;
-      const { [field]: _, ...rest } = prev;
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { [field]: _removed, ...rest } = prev;
       return rest;
     });
   }

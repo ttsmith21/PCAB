@@ -246,3 +246,9 @@ Verify **zero console errors** on each page.
 | Mobile responsive | 375px viewport | No overflow, tappable |
 | Accessibility | DevTools + keyboard | Labels, aria, fieldsets, focus |
 | Console errors | DevTools | Zero errors |
+
+## Implementation Notes
+
+- Added eslint-disable comment in `SignupForm.tsx` `clearError()` to suppress unused variable warning on destructured property
+- Build: 0 errors, 13 static routes generated (including `/join` and `/join/thanks`)
+- Lint: 0 errors, 0 warnings after fix
