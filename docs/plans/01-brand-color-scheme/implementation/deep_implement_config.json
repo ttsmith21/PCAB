@@ -1,0 +1,42 @@
+{
+  "plugin_root": "C:\\Users\\tsmith\\.claude\\plugins\\cache\\piercelamb-plugins\\deep-implement\\0.2.0",
+  "sections_dir": "C:\\Users\\tsmith\\OneDrive - Northern Manufacturing Co., Inc\\Documents\\GitHub\\PC-Boosters-Web\\docs\\plans\\01-brand-color-scheme\\sections",
+  "target_dir": "C:\\Users\\tsmith\\OneDrive - Northern Manufacturing Co., Inc\\Documents\\GitHub\\PC-Boosters-Web",
+  "state_dir": "C:\\Users\\tsmith\\OneDrive - Northern Manufacturing Co., Inc\\Documents\\GitHub\\PC-Boosters-Web\\docs\\plans\\01-brand-color-scheme\\implementation",
+  "git_root": "C:\\Users\\tsmith\\OneDrive - Northern Manufacturing Co., Inc\\Documents\\GitHub\\PC-Boosters-Web",
+  "commit_style": "conventional",
+  "test_command": "uv run pytest",
+  "sections": [
+    "section-01-theme-tokens",
+    "section-02-hover-migrations",
+    "section-03-build-verification",
+    "section-04-visual-verification"
+  ],
+  "sections_state": {
+    "section-01-theme-tokens": {
+      "status": "complete",
+      "commit_hash": "60fb514"
+    },
+    "section-02-hover-migrations": {
+      "status": "complete",
+      "commit_hash": "be0eeaf"
+    },
+    "section-03-build-verification": {
+      "status": "complete",
+      "commit_hash": "be0eeaf"
+    },
+    "section-04-visual-verification": {
+      "status": "complete",
+      "commit_hash": "verification-only"
+    }
+  },
+  "pre_commit": {
+    "present": false,
+    "type": "none",
+    "config_file": null,
+    "native_hook": null,
+    "may_modify_files": false,
+    "detected_formatters": []
+  },
+  "created_at": "2026-02-24T11:14:30.391064+00:00"
+}
