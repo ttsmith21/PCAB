@@ -178,10 +178,17 @@ The following files will need to be updated to import the new constants instead 
 
 ## Checklist
 
-- [ ] Create `__tests__/lib/constants.test.ts` with tests for PAYMENT_URLS, COMMUNITY_URLS, STRIPE_CONFIG, and BoosterHub removal
-- [ ] Run tests -- verify they fail (red phase)
-- [ ] Delete BOOSTERHUB_BASE and BOOSTERHUB_URLS from `lib/constants.ts`
-- [ ] Add PAYMENT_URLS with all 11 placeholder keys
-- [ ] Add STRIPE_CONFIG with placeholder publishableKey
-- [ ] Add mailchimpPreferences to COMMUNITY_URLS
-- [ ] Run tests -- verify they all pass (green phase)
+- [x] Create `__tests__/lib/constants.test.ts` with tests for PAYMENT_URLS, COMMUNITY_URLS, STRIPE_CONFIG, and BoosterHub removal
+- [x] Run tests -- verify they fail (red phase) -- 8 tests failed as expected
+- [x] Delete BOOSTERHUB_BASE and BOOSTERHUB_URLS from `lib/constants.ts`
+- [x] Add PAYMENT_URLS with all 11 placeholder keys
+- [x] Add STRIPE_CONFIG with placeholder publishableKey
+- [x] Add mailchimpPreferences to COMMUNITY_URLS
+- [x] Run tests -- verify they all pass (green phase) -- 8 tests passed
+
+## Implementation Notes
+
+- Implementation matched the plan exactly with no deviations
+- All placeholder URLs follow the `https://buy.stripe.com/placeholder_*` pattern
+- TODO comments added to guide future replacement with real Stripe values
+- Test file: 8 tests across 4 describe blocks

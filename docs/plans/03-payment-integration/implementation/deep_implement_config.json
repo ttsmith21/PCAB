@@ -17,7 +17,12 @@
     "section-08-other-pages",
     "section-09-cleanup"
   ],
-  "sections_state": {},
+  "sections_state": {
+    "section-01-test-setup": {
+      "status": "complete",
+      "commit_hash": "cced067"
+    }
+  },
   "pre_commit": {
     "present": false,
     "type": "none",
