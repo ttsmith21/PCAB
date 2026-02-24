@@ -115,12 +115,18 @@ Add `id="tiers"` to the tier comparison `<section>` element for anchor linking.
 
 ## Checklist
 
-- [ ] Create `__tests__/app/membership/page.test.tsx` with 7 test cases
-- [ ] Run tests -- verify they fail (red phase)
-- [ ] Remove BOOSTERHUB_URLS import, add StripeBuyButton import
-- [ ] Update tier prices to $25/$50/$100/$250
-- [ ] Add buyButtonId to each tier object
-- [ ] Replace tier card Button components with StripeBuyButton
-- [ ] Add `id="tiers"` to the tiers section
-- [ ] Update bottom CTA to anchor link, remove disclaimer
-- [ ] Run tests -- verify all pass (green phase)
+- [x] Create `__tests__/app/membership/page.test.tsx` with 7 test cases
+- [x] Run tests -- verify they fail (red phase) -- 7 tests failed
+- [x] Remove BOOSTERHUB_URLS import, add StripeBuyButton import
+- [x] Update tier prices to $25/$50/$100/$250
+- [x] Add buyButtonId to each tier object
+- [x] Replace tier card Button components with StripeBuyButton
+- [x] Add `id="tiers"` to the tiers section
+- [x] Update bottom CTA to anchor link, remove disclaimer
+- [x] Run tests -- verify all pass (green phase) -- 7 tests passed
+
+## Implementation Notes
+
+- Implementation matched the plan exactly
+- StripeBuyButton mock in tests uses data-testid for verification
+- Bottom CTA changed to "Choose Your Membership" with href="#tiers"

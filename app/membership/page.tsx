@@ -4,7 +4,7 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import FadeIn from "@/components/ui/FadeIn";
-import { BOOSTERHUB_URLS } from "@/lib/constants";
+import StripeBuyButton from "@/components/ui/StripeBuyButton";
 
 export const metadata: Metadata = {
   title: "Membership",
@@ -37,10 +37,11 @@ export default function MembershipPage() {
   const tiers = [
     {
       name: "Rookie",
-      price: "$15",
+      price: "$25",
       period: "/year",
       highlighted: false,
       badge: null,
+      buyButtonId: "buy_btn_rookie_placeholder",
       perks: [
         "Official member recognition",
         "Booster decal",
@@ -49,10 +50,11 @@ export default function MembershipPage() {
     },
     {
       name: "Captain",
-      price: "$25",
+      price: "$50",
       period: "/year",
       highlighted: false,
       badge: null,
+      buyButtonId: "buy_btn_captain_placeholder",
       perks: [
         "All Rookie benefits",
         "Booster t-shirt",
@@ -61,10 +63,11 @@ export default function MembershipPage() {
     },
     {
       name: "All Star",
-      price: "$50",
+      price: "$100",
       period: "/year",
       highlighted: true,
       badge: "Most Popular",
+      buyButtonId: "buy_btn_allstar_placeholder",
       perks: [
         "All Captain benefits",
         "Reserved seating section",
@@ -73,10 +76,11 @@ export default function MembershipPage() {
     },
     {
       name: "MVP",
-      price: "$100+",
+      price: "$250",
       period: "/year",
       highlighted: false,
       badge: null,
+      buyButtonId: "buy_btn_mvp_placeholder",
       perks: [
         "All All Star benefits",
         "VIP parking at events",
@@ -129,7 +133,7 @@ export default function MembershipPage() {
       </section>
 
       {/* Tier Comparison */}
-      <section className="py-20 bg-gray-50">
+      <section id="tiers" className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <SectionHeading
             title="Choose Your Level"
@@ -170,13 +174,10 @@ export default function MembershipPage() {
                         </li>
                       ))}
                     </ul>
-                    <Button
-                      href={BOOSTERHUB_URLS.membership}
-                      external
-                      variant={tier.highlighted ? "primary" : "outline"}
-                    >
-                      Join Now
-                    </Button>
+                    <StripeBuyButton
+                      buyButtonId={tier.buyButtonId}
+                      className="mt-4"
+                    />
                   </div>
                 </Card>
               </FadeIn>
@@ -214,13 +215,7 @@ export default function MembershipPage() {
               Become a member today and help us support every student-athlete in
               Port Clinton.
             </p>
-            <Button href={BOOSTERHUB_URLS.membership} external>
-              Become a Member
-            </Button>
-            <p className="text-sm text-gray-400 mt-4">
-              You&apos;ll be taken to our secure member portal to complete
-              registration.
-            </p>
+            <Button href="#tiers">Choose Your Membership</Button>
           </FadeIn>
         </div>
       </section>
