@@ -119,11 +119,17 @@ The hero section, featured initiative section, and initiatives grid all remain u
 
 ## Checklist
 
-- [ ] Create `__tests__/app/initiatives/page.test.tsx` with 5 test cases
-- [ ] Run tests -- verify they fail (red phase)
-- [ ] Update imports: remove `BOOSTERHUB_URLS`, add `PAYMENT_URLS`
-- [ ] Define monthly donation tier data
-- [ ] Replace bottom CTA with donation grid (5 monthly + 1 one-time)
-- [ ] All buttons use existing `Button` component with `external` prop
-- [ ] Run tests -- verify all pass (green phase)
-- [ ] Verify no "boosterhub" string remains in the file
+- [x] Create `__tests__/app/initiatives/page.test.tsx` with 5 test cases
+- [x] Run tests -- verify they fail (red phase) -- 5 tests failed
+- [x] Update imports: remove `BOOSTERHUB_URLS`, add `PAYMENT_URLS`
+- [x] Define monthly donation tier data (inline in map call)
+- [x] Replace bottom CTA with donation grid (5 monthly + 1 one-time)
+- [x] All buttons use existing `Button` component with `external` prop
+- [x] Run tests -- verify all pass (green phase) -- 5 tests passed
+- [x] Verify no "boosterhub" string remains in the file
+
+## Implementation Notes
+
+- Monthly tiers defined inline rather than as separate constant (more concise, used once)
+- Code review auto-fix: added explicit `variant="primary"` to one-time button
+- "or" separator between monthly grid and one-time button
