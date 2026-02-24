@@ -2,6 +2,8 @@
 
 @import "tailwindcss";
 
+@plugin "@tailwindcss/forms";
+
 @theme {
   --color-pc-red: #CC0033;
   --color-pc-dark: #111111;

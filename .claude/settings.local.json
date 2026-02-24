@@ -32,7 +32,14 @@
       "WebFetch(domain:lumaverse.com)",
       "WebFetch(domain:www.signupgenius.com)",
       "WebFetch(domain:sourceforge.net)",
-      "WebFetch(domain:www.softwareadvice.com)"
+      "WebFetch(domain:www.softwareadvice.com)",
+      "Bash(bash:*)",
+      "WebFetch(domain:engineering.deptagency.com)",
+      "WebFetch(domain:www.emailtooltester.com)",
+      "WebFetch(domain:blog.grasshoppersignup.com)",
+      "WebFetch(domain:www.sender.net)",
+      "WebFetch(domain:mailsoftly.com)",
+      "WebFetch(domain:www.emailvendorselection.com)"
     ]
   }
 }

@@ -13,4 +13,5 @@ export const navLinks: NavLink[] = [
   { label: "Store", href: "/store" },
   { label: "Resources", href: "/resources" },
   { label: "News", href: "/news" },
+  { label: "Join", href: "/join" },
 ];

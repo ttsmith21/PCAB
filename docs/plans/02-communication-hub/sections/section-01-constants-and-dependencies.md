@@ -253,7 +253,7 @@ The sports data contains 20 entries organized as follows:
 |------|--------|-------------|
 | `package.json` | Modified | `@tailwindcss/forms` added to `devDependencies` via `npm install -D` |
 | `app/globals.css` | Modified | `@plugin "@tailwindcss/forms"` directive added after `@import "tailwindcss"` |
-| `lib/constants.ts` | Modified | `MAILCHIMP_CONFIG`, `MAILCHIMP_GROUPS`, `COMMUNITY_URLS` exports added |
+| `lib/constants.ts` | Modified | `MAILCHIMP_CONFIG`, `MAILCHIMP_GROUPS`, `COMMUNITY_URLS` exports added; TODO comments added above each placeholder block (code review fix) |
 | `lib/data/nav-links.ts` | Modified | "Join" entry added to `navLinks` array |
 | `lib/data/sports.ts` | Not modified | Existing exports confirmed sufficient; no changes needed |
 
