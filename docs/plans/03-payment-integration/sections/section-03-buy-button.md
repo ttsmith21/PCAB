@@ -163,8 +163,14 @@ After implementing the component and tests:
 
 ## Checklist
 
-- [ ] Create `__tests__/components/ui/StripeBuyButton.test.tsx` with 6 test cases
-- [ ] Run tests -- verify they fail (red phase)
-- [ ] Create `components/ui/StripeBuyButton.tsx` with `"use client"`, Script loading, and web component rendering
-- [ ] Run tests -- verify all pass (green phase)
-- [ ] Run `npm run build` to verify no TypeScript errors
+- [x] Create `__tests__/components/ui/StripeBuyButton.test.tsx` with 6 test cases
+- [x] Run tests -- verify they fail (red phase) -- 6 tests failed as expected
+- [x] Create `components/ui/StripeBuyButton.tsx` with `"use client"`, Script loading, and web component rendering
+- [x] Run tests -- verify all pass (green phase) -- 6 tests passed
+- [ ] Run `npm run build` to verify no TypeScript errors (deferred to section-09 cleanup -- build currently broken due to BoosterHub removal in section-02)
+
+## Implementation Notes
+
+- Implementation matched the plan exactly with no deviations
+- Build verification deferred: removing BOOSTERHUB_URLS in section-02 breaks 8+ files that still import it; build will pass after sections 05-08 fix those imports
+- Code review found only minor test-style nitpicks, all triaged as "let go"
