@@ -16,6 +16,9 @@
 4. [Communication Platform Deep-Dive](#4-communication-platform-deep-dive)
 5. [Recommendation](#5-recommendation)
 6. [Implementation Requirements](#6-implementation-requirements)
+7. [News Feed Integration](#7-news-feed-integration)
+8. [Social Media & Blast Management](#8-social-media--blast-management)
+9. [Color Scheme Recommendations](#9-color-scheme-recommendations)
 
 ---
 
@@ -918,3 +921,474 @@ Research from official Stripe documentation (docs.stripe.com) reveals several co
 | **Mailchimp** | **Yes** (embedded signup forms) | **Yes** (CSV export) | **Yes** (server-side only) | **Yes** (automations, Zapier) |
 
 **Conclusion:** The technical research strongly reinforces Option D. BoosterHub, BoosterSpark, and Membership Toolkit are all walled gardens with no integration paths. Only Stripe, GroupMe, and Mailchimp offer the technical openness needed to build a cohesive experience on the custom site. The hybrid approach is not just strategically preferable -- it is the only approach that is technically feasible for embedding transactions and communication into the custom Next.js site.
+
+---
+
+## 7. News Feed Integration
+
+> Embedding live social media feeds (Facebook, Instagram, X) on the custom Next.js site to keep content fresh without manual updates.
+
+### 7.1 Critical Platform Changes (as of February 2026)
+
+Before evaluating tools, two major deprecations affect implementation:
+
+| Change | Date | Impact |
+|--------|------|--------|
+| **Instagram Basic Display API shut down** | December 4, 2024 | Personal Instagram accounts can no longer pull content to websites via any third-party tool. Must convert to a Professional (Business or Creator) account (free). The new Instagram API with Instagram Login replaces it. |
+| **Facebook Like & Comment Buttons discontinued** | February 10, 2026 | These social plugins render as 0x0 pixels (invisible). However, the **Facebook Page Plugin** (timeline/events tabs) **still works**. |
+
+### 7.2 Free Native Platform Embeds
+
+#### Facebook Page Plugin
+
+| Attribute | Details |
+|-----------|---------|
+| **Cost** | Free |
+| **What it shows** | Your Facebook Page's timeline, events, and messages |
+| **Tabs** | Timeline, Events, Messages |
+| **Embed** | JavaScript SDK snippet (~5-10 lines of HTML/JS) |
+| **Customization** | Width, height, which tabs to show, small/large header, cover photo toggle |
+| **Limitations** | Looks like Facebook (limited visual customization), not responsive out of the box (requires CSS work), only shows YOUR page's content |
+
+#### X (Twitter) Embedded Timeline
+
+| Attribute | Details |
+|-----------|---------|
+| **Cost** | Free |
+| **Setup** | Generate embed code at publish.twitter.com |
+| **Embed** | `<a>` tag + `<script>` from platform.twitter.com |
+| **Customization** | Light/dark theme, language, height, link color |
+| **Limitations** | X content only, limited styling, Twitter branding |
+
+#### Instagram
+
+No free native auto-updating feed widget exists from Instagram. Individual posts can be embedded via oEmbed/iframe, but each post's embed code must be grabbed manually. For an auto-updating feed, use a third-party aggregator tool (see below) or the Instagram Graph API (requires developer setup + Professional account).
+
+### 7.3 Third-Party Social Media Aggregator Tools
+
+#### Tier 1: Best Value (Free or Under $25/month)
+
+| Tool | Free Plan | Paid Plans | Platforms | Multi-Platform Feed | Notes |
+|------|-----------|------------|-----------|---------------------|-------|
+| **Curator.io** | 3 sources, 2K views/mo, custom CSS, Curator branding | $25-$200/mo | 15+ (IG, FB, X, TikTok, YouTube, LinkedIn, Reddit, Threads, RSS, more) | **Yes** | Top recommendation |
+| **Juicer.io** | 1 source, 24hr updates, Juicer branding | $15-$199/mo | 15+ | Yes | Free plan only 1 source (dealbreaker) |
+| **Tagembed** | 1 feed, 500 views/mo, 4-day updates | $19-$99/mo | 10+ | Yes | 500-view limit too low |
+| **Elfsight** | 1 widget, 200 views/mo | $10-$40/mo | Multiple | Yes | 200 views essentially unusable |
+| **SociableKIT** | 2 sources, 3K views/mo, default styling only | $19+/mo | 80+ widget types | Yes | No customization on free |
+| **SnapWidget** | Basic feeds, branding | $8-$14/mo | Individual per platform | No | Not a unified aggregator |
+
+#### Tier 2: Larger Organizations ($29+/month)
+
+| Tool | Starting Price | Notes |
+|------|---------------|-------|
+| **EmbedSocial** | $29/mo | Has specific React/Next.js documentation |
+| **Taggbox** | $19/mo | AI-driven moderation |
+| **Flockler** | ~$195/mo | Far too expensive for a booster club |
+| **Walls.io** | ~$250/mo | Designed for events/digital signage |
+
+### 7.4 Recommendation: Curator.io (Free Plan)
+
+| Factor | Curator.io Free |
+|--------|----------------|
+| **Cost** | $0 |
+| **Sources** | 3 (Facebook + Instagram + one more) |
+| **Monthly views** | 2,000 (sufficient for local booster club) |
+| **Multi-platform feed** | Yes -- aggregates all sources into one unified feed |
+| **Moderation** | Manual approve/reject + automatic (profanity filter, word blocking) |
+| **Custom CSS** | Yes, even on free plan |
+| **Branding** | Small "Powered by Curator.io" text at bottom |
+| **Embed** | 13 lines of JavaScript |
+| **Layouts** | Grid, waterfall, carousel, list |
+
+**Fallback:** Juicer.io Lite ($15/mo) if the 2,000 view/month limit proves too low.
+
+**Free-only alternative:** Facebook Page Plugin + X Embedded Timeline side by side (no aggregation, but $0 and no third-party dependency).
+
+#### Curator.io Embed Example
+
+```html
+<div id="curator-feed-default-feed-layout">
+  <a href="https://curator.io" target="_blank" class="crt-logo crt-tag">
+    Powered by Curator.io
+  </a>
+</div>
+<script type="text/javascript" src="https://cdn.curator.io/published/XXXXXXX.js"></script>
+```
+
+### 7.5 RSS Widgets for Local News Coverage
+
+For embedding local sports news coverage (Port Clinton News Herald, Sandusky Register):
+
+| Tool | Free Tier | Embed Method |
+|------|-----------|-------------|
+| **RSS.app** | Yes | JavaScript or iframe |
+| **RSS Dog** (rssdog.com) | Completely free | Generated iframe embed code |
+| **FeedWind** (feed.mikle.com) | Yes (with branding) | JavaScript widget |
+| **SociableKIT RSS** | Yes | JavaScript embed |
+| **Common Ninja RSS** | Yes | Single line embed code |
+
+### 7.6 Technical Integration in Next.js
+
+Most aggregator tools provide a JavaScript embed snippet. Three approaches for Next.js App Router:
+
+**1. `next/script` component (recommended):**
+
+```tsx
+import Script from "next/script";
+
+export default function SocialFeed() {
+  return (
+    <>
+      <div id="curator-feed-default-feed-layout" />
+      <Script
+        src="https://cdn.curator.io/published/XXXXXXX.js"
+        strategy="lazyOnload"
+      />
+    </>
+  );
+}
+```
+
+**2. `useEffect` + dynamic script injection (client component):**
+
+```tsx
+"use client";
+import { useEffect } from "react";
+
+export default function SocialFeed() {
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://cdn.curator.io/published/XXXXXXX.js";
+    script.async = true;
+    document.body.appendChild(script);
+    return () => { document.body.removeChild(script); };
+  }, []);
+
+  return <div id="curator-feed-default-feed-layout" />;
+}
+```
+
+**3. iframe embed:**
+
+```tsx
+<iframe
+  src="https://widget-url"
+  loading="lazy"
+  style={{ width: "100%", height: "600px", border: "none" }}
+/>
+```
+
+**Key considerations:**
+- All widget embeds are client-side JavaScript only -- do not work with SSR at build time
+- Requires `"use client"` directive in Next.js App Router components
+- Isolate the widget in its own client component to avoid hydration conflicts
+
+### 7.7 Performance Guidelines
+
+| Concern | Mitigation |
+|---------|------------|
+| Third-party JS payload (50-200KB each) | Use `strategy="lazyOnload"` on `next/script` |
+| Blocks initial paint | Place feed below the fold; lazy-load with Intersection Observer |
+| Multiple widgets compound | Limit to one aggregator (Curator.io) instead of separate embeds per platform |
+| Image-heavy feeds | Let the aggregator handle thumbnail sizing; set `loading="lazy"` on iframes |
+
+**Well-implemented lazy-loaded widget:** ~0.5-1.5 seconds for its section; does NOT impact initial page load or Core Web Vitals.
+
+**Eagerly loaded widget:** Can add 1-3 seconds to initial page load and hurt Core Web Vitals.
+
+### 7.8 React/Next.js Native Library Option
+
+**react-social-media-embed** (npm, MIT license, v2.5.18):
+- React components: `<FacebookEmbed url="..." />`, `<InstagramEmbed url="..." />`, etc.
+- Supports Facebook, Instagram, LinkedIn, Pinterest, TikTok, X/Twitter, YouTube
+- **Limitation:** Embeds individual posts by URL -- NOT an auto-updating feed. Someone must manually add each post URL. Only suitable if the club wants to feature specific curated posts, not a live feed.
+
+---
+
+## 8. Social Media & Blast Management
+
+> Tools for managing social media presence, sending SMS blasts, and email marketing -- beyond the GroupMe + Mailchimp stack recommended in Section 4.
+
+### 8.1 Social Media Management Tools
+
+#### Canva for Nonprofits (FREE -- Top Recommendation)
+
+| Attribute | Details |
+|-----------|---------|
+| **Cost** | **$0 for 501(c)(3) organizations** -- full Pro features + team tools |
+| **Users** | Up to 50 users on one account |
+| **Scheduling** | Facebook, Instagram, X/Twitter, LinkedIn, Pinterest, TikTok, Tumblr |
+| **Design** | Thousands of templates, Brand Kit, Magic Resize, AI tools |
+| **Ease of Use** | Very high -- designed for non-designers |
+| **Apply** | https://www.canva.com/canva-for-nonprofits/ |
+
+**The best deal in the entire research.** Full Pro features ($130/yr value per user) completely free. Design AND schedule posts from one platform. Immediate action item: apply for Canva for Nonprofits.
+
+#### Meta Business Suite (FREE)
+
+| Attribute | Details |
+|-----------|---------|
+| **Cost** | $0 forever |
+| **Platforms** | Facebook + Instagram only |
+| **Features** | Schedule posts and Stories, unified inbox, analytics, team permissions |
+| **Scheduling** | Up to 75 days in advance |
+| **Ease of Use** | High -- any Facebook user will find it intuitive |
+| **Limitation** | Facebook and Instagram only -- no X, LinkedIn, TikTok |
+
+#### Buffer (Paid, 50% Nonprofit Discount)
+
+| Attribute | Details |
+|-----------|---------|
+| **Free** | 3 channels, 10 scheduled posts per channel |
+| **Essentials** | $5/mo per channel, unlimited posts, analytics |
+| **Team** | $10/mo per channel, unlimited users, approval workflows |
+| **Nonprofit Discount** | **50% off** for 501(c)(3) organizations |
+| **Platforms** | Facebook, Instagram, X/Twitter, TikTok, LinkedIn, Google Business, Pinterest, Mastodon |
+| **Est. Annual (4 channels, Essentials, 50% off)** | ~$120/yr |
+
+Only needed if scheduling to X/LinkedIn/TikTok beyond what Canva + Meta Business Suite cover.
+
+#### Other Options
+
+| Tool | Starting Price | Nonprofit Discount | Notes |
+|------|---------------|-------------------|-------|
+| **Hootsuite** | $99/mo | 75% off (~$294/yr) | Overkill for small booster club |
+| **Later** | $25/mo | None | Instagram-first, more expensive than Buffer |
+
+### 8.2 SMS Blast Tools
+
+True mass SMS blasting is never fully free due to carrier costs. Budget options:
+
+| Tool | Plan | Monthly Cost | Annual Cost | Nonprofit Discount | Key Features |
+|------|------|-------------|-------------|-------------------|--------------|
+| **EZ Texting** | Launch (500 contacts) | $20/mo (annual) | **~$240/yr** | None | AI message composer, Shutterstock images, free 10DLC |
+| **Text-Em-All** | Monthly plan | $19/mo | **~$228/yr** | None (already lowest pricing) | Mass text + voice broadcast, very simple interface |
+| **SimpleTexting** | 500 credits/mo | $29/mo | **~$296/yr** | **15% off** | Best segmentation, two-way messaging, drip campaigns |
+| **SlickText** | 500 texts/mo | $29/mo | **~$290/yr** | None published | 14-day trial, onboarding on plans $129+/mo |
+| **Textedly** | 600 texts/mo | $26/mo | **~$312/yr** | None | AI text generation, Text-to-Pay |
+
+**SMS credit math:** 1 SMS = 1 credit; 1 MMS (with image) = 3 credits. All incoming messages are free on most platforms.
+
+#### Free/Low-Cost SMS Alternatives
+
+| Tool | Cost | Limitation |
+|------|------|-----------|
+| **Givebutter** | Free core; Plus $29/mo | Free text-to-donate; SMS blasts require Plus plan |
+| **DialMyCalls** | Free tier; paid from ~$9/mo | 10% nonprofit discount; mass text + voice |
+| **Remind** | Free for educators | Teacher-student-parent communication only |
+| **GroupMe** | Free | 400-message lifetime SMS cap, then app-only (see Section D.5) |
+
+### 8.3 Email Tools (Beyond Mailchimp)
+
+| Tool | Free Tier | Paid Plans | Nonprofit Discount | SMS? | Key Advantage |
+|------|-----------|------------|-------------------|------|---------------|
+| **Brevo** (fka Sendinblue) | 300/day (~9K/mo), **unlimited contacts** | Starter $9/mo | **15% off** | Yes (prepaid credits ~$0.011/msg) | Unlimited contacts on free; combined email + SMS |
+| **MailerLite** | 500 subs, 12K emails/mo | Growing $10/mo (500 subs) | **30% off** | No | Cleanest interface, website builder included |
+| **Constant Contact** | None (60-day trial) | Lite $12/mo (500 contacts) | **Up to 50% via TechSoup** | Yes ($10/mo add-on) | Only genuine all-in-one (email + social + SMS) |
+
+**Brevo free plan** is ideal for a booster club: 300 emails/day handles weekly newsletters to ~1,500 contacts with room to spare, and contacts are unlimited (vs. Mailchimp's 250 on free).
+
+**MailerLite free plan** is a close alternative: 500 subscribers and 12,000 emails/month, with a cleaner interface than Mailchimp.
+
+**Constant Contact** is the only platform that genuinely combines email marketing, social media posting (Facebook, Instagram, LinkedIn, TikTok), and SMS in one dashboard. With TechSoup's 50% nonprofit discount, Standard + SMS for 1,000 contacts runs ~$390-546/yr.
+
+### 8.4 Recommended Tool Stacks
+
+#### Option A: Minimal Cost (~$228-240/yr)
+
+| Need | Tool | Annual Cost |
+|------|------|-------------|
+| Social Media Scheduling | Canva for Nonprofits + Meta Business Suite | $0 |
+| Email Blasts | Brevo Free or MailerLite Free | $0 |
+| SMS Blasts | EZ Texting Launch or Text-Em-All | $228-240 |
+| **Total** | | **~$228-240/yr** |
+
+#### Option B: Best All-in-One (~$390-546/yr)
+
+| Need | Tool | Annual Cost |
+|------|------|-------------|
+| Email + Social + SMS | Constant Contact Standard (1K contacts + SMS add-on, TechSoup 50% off) | $390-546 |
+| Design | Canva for Nonprofits | $0 |
+| **Total** | | **~$390-546/yr** |
+
+#### Option C: Maximum Capability (~$542/yr)
+
+| Need | Tool | Annual Cost |
+|------|------|-------------|
+| Social Media Scheduling | Buffer Essentials (4 channels, 50% nonprofit) | $120 |
+| Email Blasts | MailerLite Growing Business (1K subs, 30% nonprofit) | $126 |
+| SMS Blasts | SimpleTexting (500/mo, 15% nonprofit) | $296 |
+| Design | Canva for Nonprofits | $0 |
+| **Total** | | **~$542/yr** |
+
+### 8.5 Immediate Free Actions
+
+1. **Apply for Canva for Nonprofits** at https://www.canva.com/canva-for-nonprofits/ -- requires 501(c)(3) verification
+2. **Set up Meta Business Suite** for the existing Facebook Page and Instagram account
+3. **Sign up for Brevo free plan** (300 emails/day, unlimited contacts) or **MailerLite free plan** (500 subs, 12K emails/mo)
+4. **Request free trials** from EZ Texting, SimpleTexting, or SlickText to evaluate SMS before committing
+
+---
+
+## 9. Color Scheme Recommendations
+
+> Analysis of Port Clinton High School's official colors and recommendations for updating the site's color palette to match school branding and meet WCAG accessibility standards.
+
+### 9.1 Official School Colors
+
+Port Clinton High School's official school colors are **Red and White** (mascot: Redskins). Confirmed through BSN Sports / Sideline Store (official merchandise provider), Sandusky Bay Conference listings, MaxPreps, and all athletic databases.
+
+Port Clinton does not have a published brand guide or style manual. The closest thing to an officially-used digital hex code is **#CC0033** (Vivid Crimson), extracted from the CSS of the BSN Sports sideline store (navbar borders, modal headers, hover states).
+
+### 9.2 Current Site Colors -- Problems
+
+```css
+/* Current globals.css */
+--color-pc-red: #EF2B24;    /* Bright Red */
+--color-pc-dark: #0f172a;    /* Tailwind Slate-900 (dark navy) */
+```
+
+#### #EF2B24 (PC Red): Fails WCAG AA
+
+- HSL 2.1°, 86.4% saturation, 53.9% lightness -- warm, orange-leaning bright red ("fire engine red")
+- **Contrast ratio vs. white: 4.16:1 -- FAILS WCAG AA** for normal text (needs 4.5:1)
+- Only passes for large text (18pt+ or 14pt bold+)
+- Leans orange compared to the school's actual crimson
+
+#### #0f172a (PC Dark): Not a School Color
+
+- Tailwind Slate-900 -- very dark navy/slate blue
+- Contrast with white text: 17.8:1 (excellent)
+- Contrast with #EF2B24 red: 4.28:1 -- **barely fails WCAG AA** for normal text
+- **Dark navy is not a Port Clinton school color.** Red/white schools pair with black, not navy. Using navy introduces brand confusion.
+
+### 9.3 Comparable Red/White School Palettes
+
+| School | Primary Red | Dark/Contrast | Source |
+|--------|-----------|---------------|--------|
+| Ohio State | #BB0000 (Scarlet) | #000000 (Black) | teamcolorcodes.com |
+| Alabama | #9E1B32 (Crimson) | #000000 (Black) | teamcolorcodes.com |
+| Wisconsin | #C5050C (Badger Red) | #000000 (Black) | brand.wisc.edu |
+| Port Clinton (BSN) | #CC0033 (Vivid Crimson) | -- | BSN Sideline Store CSS |
+
+**Every major red/white school uses black (not navy) as their dark/contrast color.**
+
+### 9.4 WCAG Accessibility Contrast Analysis
+
+#### Red Colors vs. White Background
+
+| Color | Hex | vs. White | WCAG AA (normal) | WCAG AA (large) | WCAG AAA |
+|-------|-----|-----------|-------------------|------------------|----------|
+| Current PC Red | #EF2B24 | 4.16:1 | **FAIL** | Pass | FAIL |
+| BSN Crimson | #CC0033 | 5.80:1 | **Pass** | Pass | Large only |
+| Ohio State Scarlet | #BB0000 | 6.74:1 | Pass | Pass | Large only |
+| Wisconsin Badger Red | #C5050C | 6.17:1 | Pass | Pass | Large only |
+| Alabama Crimson | #9E1B32 | 7.90:1 | Pass | Pass | Pass |
+| Tailwind Red-700 | #B91C1C | 6.47:1 | Pass | Pass | Large only |
+
+**Current #EF2B24 is the only red that fails WCAG AA for normal text.**
+
+#### Dark Colors vs. White Text
+
+| Color | Hex | vs. White | WCAG AA | WCAG AAA |
+|-------|-----|-----------|---------|----------|
+| Current Slate-900 | #0f172a | 17.8:1 | Pass | Pass |
+| Near-black | #111111 | 18.8:1 | Pass | Pass |
+| Dark charcoal | #1C1C1C | 17.0:1 | Pass | Pass |
+
+#### Red on Dark Backgrounds
+
+| Red | Dark | Ratio | WCAG AA (normal) |
+|-----|------|-------|-------------------|
+| #EF2B24 | #0f172a | 4.28:1 | **FAIL** |
+| #EF2B24 | #111111 | 4.53:1 | Pass (barely) |
+| #CC0033 | #0f172a | 3.07:1 | **FAIL** |
+
+### 9.5 Recommended Color Palette
+
+#### Primary Colors
+
+| Role | Name | Hex | Usage |
+|------|------|-----|-------|
+| PC Red (Primary) | Vivid Crimson | **#CC0033** | Primary brand color, buttons, headers, accents, links. Matches BSN/school. |
+| PC White | White | **#FFFFFF** | Backgrounds, text on dark/red, cards |
+| PC Dark | Near Black | **#111111** | Primary text, dark backgrounds, nav bars, footers |
+
+#### Secondary / Supporting Colors
+
+| Role | Name | Hex | Usage |
+|------|------|-----|-------|
+| PC Red Dark | Deep Crimson | **#A30B2B** | Hover states on red buttons, dark-mode red accents |
+| PC Red Light | Light Rose | **#FEF2F2** | Light background tints, alert backgrounds, section alternation |
+| PC Gray | Cool Gray | **#6B7280** | Secondary text, captions, metadata (Tailwind Gray-500) |
+| PC Gray Light | Light Gray | **#F3F4F6** | Section backgrounds, card backgrounds (Tailwind Gray-100) |
+| PC Gray Dark | Dark Gray | **#374151** | Subheadings, secondary nav, footer text (Tailwind Gray-700) |
+
+#### WCAG Compliance Summary
+
+| Combination | Ratio | AA Normal | AA Large | AAA |
+|-------------|-------|-----------|----------|-----|
+| #CC0033 on #FFFFFF | 5.80:1 | Pass | Pass | Large only |
+| #FFFFFF on #111111 | 18.8:1 | Pass | Pass | Pass |
+| #FFFFFF on #CC0033 | 5.80:1 | Pass | Pass | Large only |
+| #111111 on #FFFFFF | 18.8:1 | Pass | Pass | Pass |
+| #6B7280 on #FFFFFF | ~5.0:1 | Pass | Pass | Large only |
+| #374151 on #FFFFFF | ~8.5:1 | Pass | Pass | Pass |
+| #FFFFFF on #A30B2B | ~8.0:1 | Pass | Pass | Pass |
+
+### 9.6 Recommended `globals.css` @theme Block
+
+```css
+@theme {
+  --color-pc-red: #CC0033;
+  --color-pc-red-dark: #A30B2B;
+  --color-pc-red-light: #FEF2F2;
+  --color-pc-dark: #111111;
+  --color-pc-gray: #6B7280;
+  --color-pc-gray-light: #F3F4F6;
+  --color-pc-gray-dark: #374151;
+  --color-pc-white: #FFFFFF;
+  --font-sans: "Inter", sans-serif;
+  --font-oswald: "Oswald", sans-serif;
+  --shadow-glow: 0 0 20px rgba(204, 0, 51, 0.6);
+}
+```
+
+**Changes from current:**
+- `--color-pc-red`: #EF2B24 -> **#CC0033** (matches BSN, passes WCAG AA at 5.80:1 vs. failing 4.16:1)
+- `--color-pc-dark`: #0f172a -> **#111111** (near-black replaces navy, matches red/white school convention)
+- `--shadow-glow`: Updated rgba from `(239, 43, 36, 0.6)` to `(204, 0, 51, 0.6)` to use new red
+- **Added:** `--color-pc-red-dark`, `--color-pc-red-light`, `--color-pc-gray`, `--color-pc-gray-light`, `--color-pc-gray-dark`, `--color-pc-white`
+
+### 9.7 Color Usage Rules
+
+1. **Never use #CC0033 red as body text on white.** While it passes WCAG AA (5.80:1), reserve for headings, buttons, accents. Use #111111 or #374151 for body text.
+2. **White text on red backgrounds is fine** for buttons, banners, headers (5.80:1 passes AA).
+3. **White text on dark backgrounds** is excellent (18.8:1).
+4. **Red on dark backgrounds** -- use sparingly and only for large text/icons. Crimson on near-black is tight on contrast.
+5. **Hover states on red buttons** -- darken to #A30B2B (Deep Crimson).
+6. **Light background sections** -- alternate between #FEF2F2 (faint rose) and #F3F4F6 (neutral light gray).
+7. **Keep #EF2B24 available as a "highlight" variant** -- works for glows, gradients, and large display text where brightness is an asset rather than an accessibility liability. But not the primary brand red.
+
+---
+
+## Appendix E: Color Scheme Quick Reference Card
+
+### Before vs. After
+
+| Token | Before | After | Why |
+|-------|--------|-------|-----|
+| `--color-pc-red` | #EF2B24 (Bright Red) | **#CC0033** (Vivid Crimson) | Matches BSN Sports; WCAG AA: 5.80:1 vs. failing 4.16:1 |
+| `--color-pc-dark` | #0f172a (Navy Slate-900) | **#111111** (Near Black) | Navy is not a school color; all red/white schools use black |
+| `--shadow-glow` | rgba(239, 43, 36, 0.6) | **rgba(204, 0, 51, 0.6)** | Updated to match new primary red |
+
+### New Tokens Added
+
+| Token | Hex | Purpose |
+|-------|-----|---------|
+| `--color-pc-red-dark` | #A30B2B | Button hover, dark-mode red accent |
+| `--color-pc-red-light` | #FEF2F2 | Light section backgrounds, alert tints |
+| `--color-pc-gray` | #6B7280 | Secondary text, captions |
+| `--color-pc-gray-light` | #F3F4F6 | Card/section backgrounds |
+| `--color-pc-gray-dark` | #374151 | Subheadings, footer text |
+| `--color-pc-white` | #FFFFFF | Explicit white token for consistency |
