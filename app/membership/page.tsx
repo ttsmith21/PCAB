@@ -9,7 +9,7 @@ import { BOOSTERHUB_URLS } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Membership",
   description:
-    "Join the Port Clinton Athletic Boosters. Choose from Bronze, Silver, or Gold membership tiers and directly support student-athletes.",
+    "Join the Port Clinton Athletic Boosters. Choose from Rookie, Captain, All Star, and MVP membership tiers and directly support student-athletes.",
 };
 
 export default function MembershipPage() {
@@ -36,40 +36,52 @@ export default function MembershipPage() {
 
   const tiers = [
     {
-      name: "Bronze Supporter",
-      price: "$50",
+      name: "Rookie",
+      price: "$15",
       period: "/year",
       highlighted: false,
       badge: null,
       perks: [
-        "Name in booster newsletter",
+        "Official member recognition",
         "Booster decal",
         "Voting rights at meetings",
       ],
     },
     {
-      name: "Silver Champion",
-      price: "$100",
-      period: "/year",
-      highlighted: true,
-      badge: "Most Popular",
-      perks: [
-        "All Bronze benefits",
-        "Reserved seating section",
-        "10% store discount",
-      ],
-    },
-    {
-      name: "Gold MVP",
-      price: "$250",
+      name: "Captain",
+      price: "$25",
       period: "/year",
       highlighted: false,
       badge: null,
       perks: [
-        "All Silver benefits",
-        "VIP parking at events",
+        "All Rookie benefits",
+        "Booster t-shirt",
+        "Newsletter spotlight",
+      ],
+    },
+    {
+      name: "All Star",
+      price: "$50",
+      period: "/year",
+      highlighted: true,
+      badge: "Most Popular",
+      perks: [
+        "All Captain benefits",
+        "Reserved seating section",
         "Exclusive member events",
-        "Recognition on website",
+      ],
+    },
+    {
+      name: "MVP",
+      price: "$100+",
+      period: "/year",
+      highlighted: false,
+      badge: null,
+      perks: [
+        "All All Star benefits",
+        "VIP parking at events",
+        "Name on donor wall",
+        "Private meet & greets",
       ],
     },
   ];
@@ -123,7 +135,7 @@ export default function MembershipPage() {
             title="Choose Your Level"
             subtitle="Every level makes a real impact."
           />
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
             {tiers.map((tier, index) => (
               <FadeIn key={tier.name} delay={index * 0.1}>
                 <Card

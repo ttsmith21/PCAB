@@ -49,7 +49,7 @@ export default function ResourcesPage() {
     {
       question: "Is my donation tax-deductible?",
       answer:
-        "Yes! We are a registered 501(c)(3) non-profit organization. You will receive a receipt for your records that can be used for tax purposes.",
+        "Yes! We are a registered 501(c)(3) non-profit organization (EIN: 34-1365685). You will receive a receipt for your records that can be used for tax purposes.",
     },
     {
       question: "How can I volunteer?",
@@ -64,7 +64,7 @@ export default function ResourcesPage() {
     {
       question: "How are funds allocated?",
       answer:
-        "Our board reviews all funding requests. Priorities include equipment, facilities, scholarships, and youth programs. Financial reports are available in our documents section above.",
+        "Our board reviews all funding requests and allocates resources transparently. In FY2024, the Boosters managed over $146,000 in revenue supporting equipment, facilities, scholarships, and youth programs. Our biggest initiative to date was a $400,000 contribution to the Fieldhouse. Financial reports are available in our documents section above.",
     },
   ];
 
@@ -158,6 +158,11 @@ export default function ResourcesPage() {
                 >
                   {SITE_CONFIG.email}
                 </a>
+                <p className="text-gray-500 text-sm mt-4">
+                  Port Clinton Athletic Boosters<br />
+                  P.O. Box 3<br />
+                  Port Clinton, Ohio 43452
+                </p>
               </div>
             </Card>
           </FadeIn>

@@ -4,10 +4,10 @@ import AnimatedCounter from "@/components/ui/AnimatedCounter";
 import FadeIn from "@/components/ui/FadeIn";
 
 const stats = [
-  { end: 50, suffix: "+", label: "Scholarships Awarded" },
-  { end: 15, label: "Sports Supported" },
-  { end: 200, suffix: "+", label: "Active Members" },
-  { end: 100, prefix: "$", suffix: "K+", label: "Raised Annually" },
+  { end: 40, suffix: "+", label: "Years Serving PC" },
+  { end: 146, prefix: "$", suffix: "K+", label: "Raised in 2024" },
+  { end: 26, label: "Teams Supported" },
+  { end: 400, prefix: "$", suffix: "K", label: "Fieldhouse Investment" },
 ];
 
 export default function ImpactStats() {

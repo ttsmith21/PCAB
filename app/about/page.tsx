@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { Trophy, Users, Heart, Mail } from "lucide-react";
+import { Trophy, Users, Heart } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Card from "@/components/ui/Card";
 import FadeIn from "@/components/ui/FadeIn";
-import { boardMembers } from "@/lib/data/board";
-import { teamReps } from "@/lib/data/team-reps";
+import { officers, trustees } from "@/lib/data/board";
+import { getSportsBySeason, seasonLabels, type Season } from "@/lib/data/sports";
 
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Learn about the Port Clinton Athletic Boosters mission, leadership board, and team representatives dedicated to supporting student-athletes.",
+    "Learn about the Port Clinton Athletic Boosters mission, leadership board, and the sports we support for student-athletes.",
 };
 
 export default function AboutPage() {
@@ -18,21 +18,23 @@ export default function AboutPage() {
       icon: Trophy,
       title: "Support Athletes",
       description:
-        "Fund equipment upgrades, facility improvements, and scholarships so every student-athlete can compete at the highest level.",
+        "Encourage personal growth and development by funding equipment upgrades, facility improvements, and program enhancements that help every student-athlete reach their full potential.",
     },
     {
       icon: Users,
       title: "Build Community",
       description:
-        "Connect families, local businesses, and fans into a unified support network that celebrates our athletes.",
+        "Foster strong partnerships between families, local businesses, coaches, and schools to create a unified support network that uplifts our athletic programs.",
     },
     {
       icon: Heart,
       title: "Bridge the Gap",
       description:
-        "Coordinate youth programs and high school athletics to build a seamless development pipeline for Port Clinton.",
+        "Take ownership of the connection between youth and high school athletics, ensuring resources and opportunities are accessible to all students from every background.",
     },
   ];
+
+  const seasons: Season[] = ["fall", "winter", "spring"];
 
   return (
     <main>
@@ -42,9 +44,10 @@ export default function AboutPage() {
           <FadeIn>
             <h1 className="text-5xl md:text-6xl font-bold mb-4">About Us</h1>
             <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-              The Port Clinton Athletic Boosters is a 501(c)(3) nonprofit
-              dedicated to fueling excellence for every student-athlete in our
-              community.
+              Dedicated to supporting and enhancing athletic opportunities for
+              students in Port Clinton City Schools, fostering a positive
+              environment that encourages participation and personal growth from
+              youth to high school levels.
             </p>
           </FadeIn>
         </div>
@@ -77,6 +80,27 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Our History */}
+      <section className="py-20 bg-gray-100">
+        <div className="container mx-auto px-4">
+          <SectionHeading
+            title="Our History"
+            subtitle="Over four decades of service to student-athletes."
+          />
+          <FadeIn>
+            <div className="max-w-3xl mx-auto text-center">
+              <p className="text-gray-700 text-lg leading-relaxed">
+                Founded in 1983, the Port Clinton Athletic Boosters is an
+                all-volunteer 501(c)(3) nonprofit organization. For over 40
+                years, the PCAB has been dedicated to supporting student-athletes
+                through community fundraising, facility improvements, and
+                program development. Our EIN is 34-1365685.
+              </p>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
       {/* Board of Directors */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
@@ -84,78 +108,111 @@ export default function AboutPage() {
             title="Leadership Board"
             subtitle="Dedicated volunteers leading our mission forward."
           />
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {boardMembers.map((member, index) => (
-              <FadeIn key={member.name} delay={index * 0.1}>
-                <Card>
-                  <div className="flex flex-col items-center text-center">
-                    <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mb-4">
-                      <span className="text-2xl font-bold text-gray-400">
-                        {member.name
-                          .split(" ")
-                          .map((n) => n[0])
-                          .join("")}
-                      </span>
+
+          {/* Officers */}
+          <div className="max-w-5xl mx-auto mb-12">
+            <FadeIn>
+              <h3 className="font-oswald text-2xl font-bold uppercase text-center mb-8 text-gray-800">
+                Officers
+              </h3>
+            </FadeIn>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              {officers.map((member, index) => (
+                <FadeIn key={member.name} delay={index * 0.1}>
+                  <Card>
+                    <div className="flex flex-col items-center text-center">
+                      <div className="w-28 h-28 bg-gray-200 rounded-full flex items-center justify-center mb-4">
+                        <span className="text-3xl font-bold text-gray-400">
+                          {member.name
+                            .split(" ")
+                            .map((n) => n[0])
+                            .join("")}
+                        </span>
+                      </div>
+                      <h3 className="font-oswald text-lg font-bold uppercase">
+                        {member.name}
+                      </h3>
+                      <p className="text-pc-red font-semibold">{member.role}</p>
                     </div>
-                    <h3 className="font-oswald text-lg font-bold uppercase">
-                      {member.name}
-                    </h3>
-                    <p className="text-pc-red font-semibold">{member.role}</p>
-                  </div>
-                </Card>
-              </FadeIn>
-            ))}
+                  </Card>
+                </FadeIn>
+              ))}
+            </div>
+          </div>
+
+          {/* Trustees */}
+          <div className="max-w-5xl mx-auto">
+            <FadeIn>
+              <h3 className="font-oswald text-2xl font-bold uppercase text-center mb-8 text-gray-800">
+                Trustees
+              </h3>
+            </FadeIn>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
+              {trustees.map((member, index) => (
+                <FadeIn key={member.name} delay={index * 0.1}>
+                  <Card>
+                    <div className="flex flex-col items-center text-center">
+                      <div className="w-20 h-20 bg-gray-200 rounded-full flex items-center justify-center mb-3">
+                        <span className="text-xl font-bold text-gray-400">
+                          {member.name
+                            .split(" ")
+                            .map((n) => n[0])
+                            .join("")}
+                        </span>
+                      </div>
+                      <h3 className="font-oswald text-base font-bold uppercase">
+                        {member.name}
+                      </h3>
+                      <p className="text-pc-red text-sm font-semibold">
+                        {member.role}
+                      </p>
+                    </div>
+                  </Card>
+                </FadeIn>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Team Representatives */}
+      {/* Sports We Support */}
       <section className="py-20 bg-pc-dark text-white">
         <div className="container mx-auto px-4">
           <SectionHeading
-            title="Team Representatives"
-            subtitle="Your point of contact for each sport."
+            title="Sports We Support"
+            subtitle="Programs we proudly back across all three seasons."
             light
           />
-          <FadeIn>
-            <div className="max-w-4xl mx-auto overflow-x-auto">
-              <table className="w-full text-left">
-                <thead>
-                  <tr className="border-b border-white/20">
-                    <th className="font-oswald uppercase tracking-wider py-4 px-4 text-gray-300">
-                      Sport
-                    </th>
-                    <th className="font-oswald uppercase tracking-wider py-4 px-4 text-gray-300">
-                      Representative
-                    </th>
-                    <th className="font-oswald uppercase tracking-wider py-4 px-4 text-gray-300">
-                      Contact
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {teamReps.map((rep) => (
-                    <tr
-                      key={rep.sport}
-                      className="border-b border-white/10 hover:bg-white/5 transition-colors"
-                    >
-                      <td className="py-4 px-4 font-semibold">{rep.sport}</td>
-                      <td className="py-4 px-4">{rep.name}</td>
-                      <td className="py-4 px-4">
-                        <a
-                          href={`mailto:${rep.email}`}
-                          className="inline-flex items-center gap-2 text-pc-red hover:text-red-400 transition-colors"
-                        >
-                          <Mail className="w-4 h-4" />
-                          <span className="hidden sm:inline">{rep.email}</span>
-                        </a>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </FadeIn>
+          <div className="max-w-5xl mx-auto space-y-12">
+            {seasons.map((season, seasonIndex) => {
+              const seasonSports = getSportsBySeason(season);
+              return (
+                <FadeIn key={season} delay={seasonIndex * 0.1}>
+                  <div>
+                    <h3 className="font-oswald text-2xl font-bold uppercase mb-6 text-center">
+                      {seasonLabels[season]} Season
+                    </h3>
+                    <div className="flex flex-wrap justify-center gap-3">
+                      {seasonSports.map((sport) => {
+                        const label =
+                          sport.gender === "coed"
+                            ? sport.name
+                            : `${sport.name} - ${sport.gender === "boys" ? "Boys" : "Girls"}`;
+                        return (
+                          <span
+                            key={`${sport.name}-${sport.gender}`}
+                            className="bg-white/10 rounded-full px-4 py-2 text-sm font-medium"
+                          >
+                            {label}
+                          </span>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </FadeIn>
+              );
+            })}
+          </div>
         </div>
       </section>
     </main>

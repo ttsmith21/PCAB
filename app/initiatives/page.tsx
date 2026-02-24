@@ -12,6 +12,9 @@ export const metadata: Metadata = {
 };
 
 export default function InitiativesPage() {
+  const featuredInitiative = initiatives.find((i) => i.featured);
+  const regularInitiatives = initiatives.filter((i) => !i.featured);
+
   return (
     <main>
       {/* Hero */}
@@ -29,6 +32,49 @@ export default function InitiativesPage() {
         </div>
       </section>
 
+      {/* Featured Initiative */}
+      {featuredInitiative && (
+        <section className="py-20 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <FadeIn>
+              <p className="text-center text-sm font-oswald font-bold uppercase tracking-widest text-pc-red mb-2">
+                Our Flagship Project
+              </p>
+              <h2 className="text-center text-4xl md:text-5xl font-bold mb-12">
+                {featuredInitiative.title}
+              </h2>
+            </FadeIn>
+            <FadeIn delay={0.15}>
+              <div className="max-w-6xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden">
+                <div className="md:flex">
+                  {/* Photo placeholder — larger for featured */}
+                  <div className="w-full md:w-1/2 h-72 md:h-auto min-h-[320px] bg-gray-200 flex-shrink-0 flex items-center justify-center">
+                    <span className="text-gray-400 text-sm">
+                      Photo Coming Soon
+                    </span>
+                  </div>
+                  {/* Content */}
+                  <div className="w-full md:w-1/2 p-10 md:p-12 flex flex-col justify-center">
+                    <span className="inline-block bg-pc-red/10 text-pc-red text-xs font-oswald font-bold uppercase tracking-wider py-1 px-3 rounded-full mb-4 w-fit">
+                      {featuredInitiative.category}
+                    </span>
+                    <h3 className="font-oswald text-3xl md:text-4xl font-bold uppercase mb-4">
+                      {featuredInitiative.title}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed text-lg mb-6">
+                      {featuredInitiative.description}
+                    </p>
+                    <p className="text-xs font-oswald uppercase tracking-widest text-gray-400">
+                      Opened 2021 &bull; 407 Short Street
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </FadeIn>
+          </div>
+        </section>
+      )}
+
       {/* Initiatives Grid */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
@@ -37,7 +83,7 @@ export default function InitiativesPage() {
             subtitle="See exactly how your contributions are making a difference."
           />
           <div className="max-w-5xl mx-auto space-y-8">
-            {initiatives.map((initiative, index) => (
+            {regularInitiatives.map((initiative, index) => (
               <FadeIn key={initiative.title} delay={index * 0.1}>
                 <div className="bg-white rounded-2xl shadow-lg overflow-hidden border-l-4 border-pc-red hover:shadow-xl transition-all duration-300">
                   <div className="md:flex">

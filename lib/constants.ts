@@ -15,5 +15,7 @@ export const SITE_CONFIG = {
   logoUrl: "/images/logo.png",
   facebookPageUrl: "https://www.facebook.com/PCathleticboosters",
   email: "info@pcathleticboosters.com",
-  taxId: "TODO: Add EIN",
+  taxId: "34-1365685",
+  mailingAddress: "P.O. Box 3, Port Clinton, Ohio 43452",
+  founded: 1983,
 } as const;
