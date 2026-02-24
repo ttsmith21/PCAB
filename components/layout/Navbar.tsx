@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu } from "lucide-react";
 import { navLinks } from "@/lib/data/nav-links";
-import { SITE_CONFIG, BOOSTERHUB_URLS } from "@/lib/constants";
+import { SITE_CONFIG, PAYMENT_URLS, COMMUNITY_URLS } from "@/lib/constants";
 import MobileMenu from "./MobileMenu";
 
 export default function Navbar() {
@@ -76,18 +76,38 @@ export default function Navbar() {
 
             {/* Right side: Login, Donate, Hamburger */}
             <div className="flex items-center gap-4">
+              {/* Manage Membership dropdown (desktop only) */}
+              <div className="hidden lg:block relative group">
+                <span
+                  className={`font-oswald text-sm uppercase tracking-wide transition-colors cursor-pointer hover:text-pc-red ${
+                    scrolled ? "text-gray-700" : "text-white"
+                  }`}
+                >
+                  Manage Membership
+                </span>
+                <div className="absolute right-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                  <div className="bg-white rounded-lg shadow-lg py-2 min-w-[220px]">
+                    <a
+                      href={PAYMENT_URLS.customer_portal}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-pc-red transition-colors"
+                    >
+                      Billing &amp; Subscription
+                    </a>
+                    <a
+                      href={COMMUNITY_URLS.mailchimpPreferences}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-pc-red transition-colors"
+                    >
+                      Email Preferences
+                    </a>
+                  </div>
+                </div>
+              </div>
               <a
-                href={BOOSTERHUB_URLS.login}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`hidden lg:inline-block font-oswald text-sm uppercase tracking-wide transition-colors hover:text-pc-red ${
-                  scrolled ? "text-gray-700" : "text-white"
-                }`}
-              >
-                Member Login
-              </a>
-              <a
-                href={BOOSTERHUB_URLS.donate}
+                href={PAYMENT_URLS.donate}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block font-oswald text-sm uppercase tracking-wide text-white bg-pc-red rounded-full px-5 py-2 hover:bg-pc-red-dark transition-colors"

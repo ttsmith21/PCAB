@@ -196,12 +196,20 @@ import { PAYMENT_URLS, COMMUNITY_URLS } from "@/lib/constants";
 
 ## Implementation Checklist
 
-- [ ] Write all three test files first. Run `npx vitest run` to verify they all fail (red phase).
-- [ ] Update `components/layout/Navbar.tsx`: change import, update Donate href, replace Member Login with Manage Membership hover dropdown
-- [ ] Update `components/layout/MobileMenu.tsx`: change import, update Donate href, replace Member Login with two separate links
-- [ ] Update `components/layout/Footer.tsx`: change import, replace Member Login with two list items
-- [ ] Run `npx vitest run` to verify all tests pass (green phase)
-- [ ] Run `npm run build` to verify the static export completes
+- [x] Write all three test files first. Run `npx vitest run` to verify they all fail (red phase) -- 16 tests failed
+- [x] Update `components/layout/Navbar.tsx`: change import, update Donate href, replace Member Login with Manage Membership hover dropdown
+- [x] Update `components/layout/MobileMenu.tsx`: change import, update Donate href, replace Member Login with two separate links
+- [x] Update `components/layout/Footer.tsx`: change import, replace Member Login with two list items
+- [x] Run `npx vitest run` to verify all tests pass (green phase) -- 16 tests passed
+- [ ] Run `npm run build` to verify the static export completes (deferred to section-09)
+
+## Implementation Notes
+
+- All verification criteria met
+- Navbar: CSS group-hover dropdown pattern for desktop, hidden on mobile
+- MobileMenu: "Manage Membership" heading + two separate tappable links + Donate
+- Footer: Two new list items replacing single "Member Login"
+- Code review found only test coverage gaps (not defects); both triaged as "let go"
 
 ## Verification Criteria
 
