@@ -246,3 +246,10 @@ Verify:
 1. No TypeScript errors
 2. The build output lists `/join` and `/join/thanks` as generated static pages
 3. No missing import errors (all referenced components and constants must exist from Sections 1 and 2)
+
+## Code Review Changes
+
+- Wrapped thank-you page numbered steps in semantic `<ol>` / `<li>` for screen reader accessibility
+- Added Card import to join page for value proposition section (not in plan's explicit import list but needed)
+- Placeholder Facebook Group URL left as-is (user decision: will replace before deploy)
+- Relative _redirect path left as-is (user decision: test when Mailchimp configured)
