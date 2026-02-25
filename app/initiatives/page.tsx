@@ -3,7 +3,7 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import Button from "@/components/ui/Button";
 import FadeIn from "@/components/ui/FadeIn";
 import { initiatives } from "@/lib/data/initiatives";
-import { BOOSTERHUB_URLS } from "@/lib/constants";
+import { PAYMENT_URLS } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Initiatives",
@@ -113,7 +113,7 @@ export default function InitiativesPage() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* Donate */}
       <section className="py-16 bg-pc-dark text-white text-center">
         <div className="container mx-auto px-4">
           <FadeIn>
@@ -124,8 +124,27 @@ export default function InitiativesPage() {
               Your donation directly funds the programs and facilities that make a
               difference for Port Clinton athletes.
             </p>
-            <Button href={BOOSTERHUB_URLS.donate} external>
-              Make a Donation
+            <div className="grid grid-cols-3 md:grid-cols-5 gap-4 max-w-2xl mx-auto mb-8">
+              {[
+                { amount: 5, label: "$5/mo", url: PAYMENT_URLS.donate_monthly_5 },
+                { amount: 10, label: "$10/mo", url: PAYMENT_URLS.donate_monthly_10 },
+                { amount: 25, label: "$25/mo", url: PAYMENT_URLS.donate_monthly_25 },
+                { amount: 50, label: "$50/mo", url: PAYMENT_URLS.donate_monthly_50 },
+                { amount: 100, label: "$100/mo", url: PAYMENT_URLS.donate_monthly_100 },
+              ].map((tier) => (
+                <Button
+                  key={tier.amount}
+                  href={tier.url}
+                  variant="outline"
+                  external
+                >
+                  {tier.label}
+                </Button>
+              ))}
+            </div>
+            <p className="text-gray-400 mb-6">or</p>
+            <Button href={PAYMENT_URLS.donate} variant="primary" external>
+              Give Any Amount
             </Button>
           </FadeIn>
         </div>

@@ -3,7 +3,7 @@
 import { X } from "lucide-react";
 import Link from "next/link";
 import { navLinks } from "@/lib/data/nav-links";
-import { BOOSTERHUB_URLS } from "@/lib/constants";
+import { PAYMENT_URLS, COMMUNITY_URLS } from "@/lib/constants";
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -42,17 +42,29 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
       {/* Bottom buttons */}
       <div className="p-6 flex flex-col gap-4">
+        <p className="font-oswald text-sm uppercase tracking-wide text-gray-400 text-center">
+          Manage Membership
+        </p>
         <a
-          href={BOOSTERHUB_URLS.login}
+          href={PAYMENT_URLS.customer_portal}
           target="_blank"
           rel="noopener noreferrer"
           onClick={onClose}
           className="block w-full text-center font-oswald text-lg uppercase tracking-wide text-white border border-white rounded-full py-3 hover:bg-white hover:text-pc-dark transition-colors"
         >
-          Member Login
+          Billing &amp; Subscription
         </a>
         <a
-          href={BOOSTERHUB_URLS.donate}
+          href={COMMUNITY_URLS.mailchimpPreferences}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={onClose}
+          className="block w-full text-center font-oswald text-lg uppercase tracking-wide text-white border border-white rounded-full py-3 hover:bg-white hover:text-pc-dark transition-colors"
+        >
+          Email Preferences
+        </a>
+        <a
+          href={PAYMENT_URLS.donate}
           target="_blank"
           rel="noopener noreferrer"
           onClick={onClose}

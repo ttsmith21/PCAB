@@ -1,0 +1,67 @@
+{
+  "plugin_root": "C:\\Users\\tsmith\\.claude\\plugins\\cache\\piercelamb-plugins\\deep-implement\\0.2.0",
+  "sections_dir": "C:\\Users\\tsmith\\OneDrive - Northern Manufacturing Co., Inc\\Documents\\GitHub\\PC-Boosters-Web\\docs\\plans\\03-payment-integration\\sections",
+  "target_dir": "C:\\Users\\tsmith\\OneDrive - Northern Manufacturing Co., Inc\\Documents\\GitHub\\PC-Boosters-Web",
+  "state_dir": "C:\\Users\\tsmith\\OneDrive - Northern Manufacturing Co., Inc\\Documents\\GitHub\\PC-Boosters-Web\\docs\\plans\\03-payment-integration\\implementation",
+  "git_root": "C:\\Users\\tsmith\\OneDrive - Northern Manufacturing Co., Inc\\Documents\\GitHub\\PC-Boosters-Web",
+  "commit_style": "conventional",
+  "test_command": "uv run pytest",
+  "sections": [
+    "section-01-test-setup",
+    "section-02-constants",
+    "section-03-buy-button",
+    "section-04-payment-thanks",
+    "section-05-navigation",
+    "section-06-membership",
+    "section-07-initiatives",
+    "section-08-other-pages",
+    "section-09-cleanup"
+  ],
+  "sections_state": {
+    "section-01-test-setup": {
+      "status": "complete",
+      "commit_hash": "cced067"
+    },
+    "section-02-constants": {
+      "status": "complete",
+      "commit_hash": "31a7a5d"
+    },
+    "section-03-buy-button": {
+      "status": "complete",
+      "commit_hash": "4d7be2f"
+    },
+    "section-04-payment-thanks": {
+      "status": "complete",
+      "commit_hash": "7549786"
+    },
+    "section-05-navigation": {
+      "status": "complete",
+      "commit_hash": "f1bd78f"
+    },
+    "section-06-membership": {
+      "status": "complete",
+      "commit_hash": "daadb97"
+    },
+    "section-07-initiatives": {
+      "status": "complete",
+      "commit_hash": "b7476f9"
+    },
+    "section-08-other-pages": {
+      "status": "complete",
+      "commit_hash": "a2a034f"
+    },
+    "section-09-cleanup": {
+      "status": "complete",
+      "commit_hash": "1df038d"
+    }
+  },
+  "pre_commit": {
+    "present": false,
+    "type": "none",
+    "config_file": null,
+    "native_hook": null,
+    "may_modify_files": false,
+    "detected_formatters": []
+  },
+  "created_at": "2026-02-24T23:10:31.425082+00:00"
+}

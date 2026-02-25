@@ -1,11 +1,23 @@
-export const BOOSTERHUB_BASE = "https://pcathleticbooster.boosterhub.com";
+// TODO: Replace placeholder URLs with real Stripe Payment Links
+// from the Stripe Dashboard after products are created.
+export const PAYMENT_URLS = {
+  membership_rookie: "https://buy.stripe.com/placeholder_membership_rookie",
+  membership_captain: "https://buy.stripe.com/placeholder_membership_captain",
+  membership_allstar: "https://buy.stripe.com/placeholder_membership_allstar",
+  membership_mvp: "https://buy.stripe.com/placeholder_membership_mvp",
+  donate: "https://buy.stripe.com/placeholder_donate",
+  donate_monthly_5: "https://buy.stripe.com/placeholder_donate_monthly_5",
+  donate_monthly_10: "https://buy.stripe.com/placeholder_donate_monthly_10",
+  donate_monthly_25: "https://buy.stripe.com/placeholder_donate_monthly_25",
+  donate_monthly_50: "https://buy.stripe.com/placeholder_donate_monthly_50",
+  donate_monthly_100: "https://buy.stripe.com/placeholder_donate_monthly_100",
+  customer_portal: "https://billing.stripe.com/p/login/placeholder",
+} as const;
 
-export const BOOSTERHUB_URLS = {
-  membership: `${BOOSTERHUB_BASE}/membership`,
-  volunteer: `${BOOSTERHUB_BASE}/volunteer`,
-  store: `${BOOSTERHUB_BASE}/store`,
-  login: `${BOOSTERHUB_BASE}/login`,
-  donate: `${BOOSTERHUB_BASE}/store`,
+// TODO: Replace placeholder with real Stripe publishable key
+// from Stripe Dashboard > Developers > API keys.
+export const STRIPE_CONFIG = {
+  publishableKey: "pk_test_placeholder",
 } as const;
 
 export const SITE_CONFIG = {
@@ -53,4 +65,5 @@ export const COMMUNITY_URLS = {
   facebookPage: "https://www.facebook.com/PCathleticboosters",
   facebookGroup: "https://facebook.com/groups/<GROUP_SLUG>",
   signupGenius: "https://www.signupgenius.com/<SIGNUP_SLUG>",
+  mailchimpPreferences: "https://mailchimp.com/preferences/placeholder",
 } as const;

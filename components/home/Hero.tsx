@@ -1,6 +1,6 @@
 import Button from "@/components/ui/Button";
 import FadeIn from "@/components/ui/FadeIn";
-import { BOOSTERHUB_URLS } from "@/lib/constants";
+import { PAYMENT_URLS } from "@/lib/constants";
 
 export default function Hero() {
   return (
@@ -27,11 +27,11 @@ export default function Hero() {
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button href={BOOSTERHUB_URLS.membership} external>
+            <Button href="/membership">
               Become a Member
             </Button>
             <Button
-              href={BOOSTERHUB_URLS.donate}
+              href={PAYMENT_URLS.donate}
               variant="outline"
               external
               className="border-white text-white hover:bg-white hover:text-pc-dark"

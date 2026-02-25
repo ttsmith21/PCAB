@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Facebook, Mail, Users, UserPlus } from "lucide-react";
 import { navLinks } from "@/lib/data/nav-links";
-import { SITE_CONFIG, BOOSTERHUB_URLS, COMMUNITY_URLS } from "@/lib/constants";
+import { SITE_CONFIG, PAYMENT_URLS, COMMUNITY_URLS } from "@/lib/constants";
 
 export default function Footer() {
   const quickLinks = navLinks.slice(0, 6);
@@ -92,12 +92,22 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href={BOOSTERHUB_URLS.login}
+                  href={PAYMENT_URLS.customer_portal}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 text-sm hover:text-white transition-colors"
                 >
-                  Member Login
+                  Billing &amp; Subscription
+                </a>
+              </li>
+              <li>
+                <a
+                  href={COMMUNITY_URLS.mailchimpPreferences}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 text-sm hover:text-white transition-colors"
+                >
+                  Email Preferences
                 </a>
               </li>
             </ul>
