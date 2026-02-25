@@ -111,11 +111,12 @@ export default function SignupForm() {
 
   const seasons: Season[] = ["fall", "winter", "spring"];
   const levels = [
-    { label: "Youth (K-6)", value: "youth" },
-    { label: "Middle School (7-8)", value: "middle" },
-    { label: "High School (9-12)", value: "high" },
+    { label: "2026", value: "4096" },
+    { label: "2027", value: "8192" },
+    { label: "2028", value: "16384" },
+    { label: "2029", value: "32768" },
   ];
-  const roles = ["Parent", "Coach", "Volunteer", "Community Supporter"];
+  const roles = ["Parent", "Student-Athlete", "Coach", "Community Member", "Alumni"];
 
   const inputClasses =
     "w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-pc-red focus:border-pc-red";
@@ -328,15 +329,15 @@ export default function SignupForm() {
           })}
         </div>
 
-        {/* Level */}
+        {/* Graduation Year */}
         <fieldset className="mb-6">
           <legend className="font-oswald text-lg font-bold uppercase tracking-wide mb-3">
-            Level
+            Graduation Year
           </legend>
           <div className="space-y-2">
             {levels.map((level) => {
               const optionId =
-                MAILCHIMP_GROUPS.level.options[level.label] || level.value;
+                MAILCHIMP_GROUPS.graduationYear.options[level.label] || level.value;
               return (
                 <label
                   key={level.value}
@@ -344,7 +345,7 @@ export default function SignupForm() {
                 >
                   <input
                     type="checkbox"
-                    name={`group[${MAILCHIMP_GROUPS.level.groupId}][${optionId}]`}
+                    name={`group[${MAILCHIMP_GROUPS.graduationYear.groupId}][${optionId}]`}
                     value="1"
                     checked={selectedLevels.has(level.value)}
                     onChange={() => toggleLevel(level.value)}
