@@ -32,6 +32,10 @@
     "section-04-social-follow-banner-component": {
       "status": "complete",
       "commit_hash": "6de5d55"
+    },
+    "section-05-news-page-redesign": {
+      "status": "complete",
+      "commit_hash": "db5dbf5"
     }
   },
   "pre_commit": {
