@@ -41,7 +41,7 @@ export default function MembershipPage() {
       period: "/year",
       highlighted: false,
       badge: null,
-      buyButtonId: "buy_btn_rookie_placeholder",
+      buyButtonId: "buy_btn_1T4W3JHSqrjFUVpy3WU5AI8Z",
       perks: [
         "Official member recognition",
         "Booster decal",
@@ -54,7 +54,7 @@ export default function MembershipPage() {
       period: "/year",
       highlighted: false,
       badge: null,
-      buyButtonId: "buy_btn_captain_placeholder",
+      buyButtonId: "buy_btn_1T4W4bHSqrjFUVpyZT2hhpkH",
       perks: [
         "All Rookie benefits",
         "Booster t-shirt",
@@ -67,7 +67,7 @@ export default function MembershipPage() {
       period: "/year",
       highlighted: true,
       badge: "Most Popular",
-      buyButtonId: "buy_btn_allstar_placeholder",
+      buyButtonId: "buy_btn_1T4W59HSqrjFUVpyU9BWL5nV",
       perks: [
         "All Captain benefits",
         "Reserved seating section",
@@ -80,7 +80,7 @@ export default function MembershipPage() {
       period: "/year",
       highlighted: false,
       badge: null,
-      buyButtonId: "buy_btn_mvp_placeholder",
+      buyButtonId: "buy_btn_1T4W5QHSqrjFUVpyFEyztelg",
       perks: [
         "All All Star benefits",
         "VIP parking at events",
