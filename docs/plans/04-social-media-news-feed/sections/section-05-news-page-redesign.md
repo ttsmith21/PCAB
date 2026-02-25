@@ -164,3 +164,10 @@ Add `<SocialFollowBanner />` after the social feed section.
 1. All tests in `__tests__/app/news/page.test.tsx` pass
 2. `npm run build` succeeds
 3. Visual check: `/news` shows feed section, banner, no events, no Facebook iframe
+
+## Implementation Notes
+
+- **Deviation from plan**: Changed hero h1 from "Latest Updates" to "News" during code review to avoid duplicate heading text (SectionHeading below also says "Latest Updates").
+- **Test addition**: Added "Back-to-School Night" assertion to events removal test for full coverage of all 3 old events.
+- SectionHeading mock omitted from tests since the real component is simple and works fine in jsdom.
+- All 6 tests pass. Page fully restructured per plan.

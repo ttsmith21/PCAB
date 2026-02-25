@@ -28,6 +28,10 @@
     "section-03-social-feed-section-component": {
       "status": "complete",
       "commit_hash": "b6770a3"
+    },
+    "section-04-social-follow-banner-component": {
+      "status": "complete",
+      "commit_hash": "6de5d55"
     }
   },
   "pre_commit": {
