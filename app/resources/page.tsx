@@ -17,26 +17,18 @@ export default function ResourcesPage() {
     {
       title: "Bylaws",
       description: "Our governing documents and organizational rules.",
-      href: "#",
-      label: "View",
     },
     {
       title: "Meeting Minutes",
       description: "Records from our board meetings.",
-      href: "#",
-      label: "View",
     },
     {
       title: "Financial Reports",
       description: "Annual reports and financial statements.",
-      href: "#",
-      label: "Download",
     },
     {
       title: "Volunteer Handbook",
       description: "Everything you need to know as a volunteer.",
-      href: "#",
-      label: "Download",
     },
   ];
 
@@ -94,25 +86,22 @@ export default function ResourcesPage() {
             {documents.map((doc, index) => (
               <FadeIn key={doc.title} delay={index * 0.1}>
                 <Card>
-                  <a
-                    href={doc.href}
-                    className="flex items-start gap-4 group"
-                  >
-                    <div className="w-12 h-12 bg-pc-red/10 rounded-full flex items-center justify-center flex-shrink-0">
-                      <FileText className="w-6 h-6 text-pc-red" />
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center flex-shrink-0">
+                      <FileText className="w-6 h-6 text-gray-400" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="font-oswald text-lg font-bold uppercase mb-1 group-hover:text-pc-red transition-colors">
+                      <h3 className="font-oswald text-lg font-bold uppercase mb-1">
                         {doc.title}
                       </h3>
                       <p className="text-gray-600 text-sm mb-2">
                         {doc.description}
                       </p>
-                      <span className="text-pc-red text-sm font-semibold uppercase tracking-wider">
-                        {doc.label}
+                      <span className="text-gray-400 text-sm font-semibold uppercase tracking-wider">
+                        Coming Soon
                       </span>
                     </div>
-                  </a>
+                  </div>
                 </Card>
               </FadeIn>
             ))}

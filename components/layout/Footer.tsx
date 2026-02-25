@@ -76,7 +76,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href={SITE_CONFIG.xUrl}
+                  href={SOCIAL_URLS.x}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Follow us on X"

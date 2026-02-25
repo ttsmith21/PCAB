@@ -21,10 +21,6 @@ export const SITE_CONFIG = {
   tagline: "One Town. One Team.",
   description: "Supporting Port Clinton student-athletes through community partnerships, fundraising, and volunteerism.",
   logoUrl: "/images/logo.png",
-  facebookPageUrl: "https://www.facebook.com/PortClintonAthleticBoosters",
-  instagramUrl: "https://www.instagram.com/portclintonathleticboosters/",
-  xUrl: "https://x.com/PCAthleticBoost",
-  youtubeUrl: "https://www.youtube.com/@PCAthleticBoosters",
   email: "info@pcathleticboosters.com",
   taxId: "34-1365685",
   mailingAddress: "P.O. Box 3, Port Clinton, Ohio 43452",
@@ -90,9 +86,10 @@ export const COMMUNITY_URLS = {
 export const SOCIAL_URLS = {
   facebook: "https://www.facebook.com/PortClintonAthleticBoosters",
   instagram: "https://www.instagram.com/portclintonathleticboosters/",
+  x: "https://x.com/PCAthleticBoost",
   youtube: "https://www.youtube.com/@PCAthleticBoosters",
 } as const;
 
 export const CURATOR_CONFIG = {
-  feedId: "placeholder",
+  feedId: "c631853e-26d9-4e61-a39c-fd714f7ae6b3",
 } as const;
