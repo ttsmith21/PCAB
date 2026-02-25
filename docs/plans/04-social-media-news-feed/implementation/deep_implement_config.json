@@ -40,6 +40,10 @@
     "section-06-homepage-modification": {
       "status": "complete",
       "commit_hash": "a8256db"
+    },
+    "section-07-footer-modification": {
+      "status": "complete",
+      "commit_hash": "b14bbbd"
     }
   },
   "pre_commit": {
