@@ -20,6 +20,10 @@
     "section-01-constants-and-dependencies": {
       "status": "complete",
       "commit_hash": "9d8d71e"
+    },
+    "section-02-curator-feed-component": {
+      "status": "complete",
+      "commit_hash": "27c9f84"
     }
   },
   "pre_commit": {
