@@ -114,3 +114,8 @@ Existing mocks for `next/link` and `next/image` remain. No additional mocks need
 |------|--------|
 | `components/layout/Footer.tsx` | **Modify** -- update imports, URLs, add aria-labels |
 | `__tests__/components/layout/Footer.test.tsx` | **Modify** -- add 5 new tests |
+
+## Implementation Notes
+
+- All 4 changes implemented exactly as planned. No deviations.
+- All 9 tests pass (4 existing + 5 new). Code review found no actionable issues.

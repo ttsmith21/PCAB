@@ -36,6 +36,10 @@
     "section-05-news-page-redesign": {
       "status": "complete",
       "commit_hash": "db5dbf5"
+    },
+    "section-06-homepage-modification": {
+      "status": "complete",
+      "commit_hash": "a8256db"
     }
   },
   "pre_commit": {

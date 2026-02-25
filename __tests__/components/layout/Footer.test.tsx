@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import Footer from "@/components/layout/Footer";
-import { PAYMENT_URLS, COMMUNITY_URLS } from "@/lib/constants";
+import { PAYMENT_URLS, COMMUNITY_URLS, SOCIAL_URLS } from "@/lib/constants";
 
 vi.mock("next/link", () => ({
   default: ({ href, children, ...props }: any) => (
@@ -44,5 +44,43 @@ describe("Footer", () => {
     links.forEach((link) => {
       expect(link.getAttribute("href")).not.toMatch(/boosterhub/i);
     });
+  });
+
+  it("renders Facebook link with correct URL from SOCIAL_URLS", () => {
+    render(<Footer />);
+    const link = screen.getByRole("link", { name: /follow us on facebook/i });
+    expect(link).toHaveAttribute("href", SOCIAL_URLS.facebook);
+  });
+
+  it("renders Instagram link with correct URL from SOCIAL_URLS", () => {
+    render(<Footer />);
+    const link = screen.getByRole("link", { name: /follow us on instagram/i });
+    expect(link).toHaveAttribute("href", SOCIAL_URLS.instagram);
+  });
+
+  it("renders YouTube link with correct URL from SOCIAL_URLS", () => {
+    render(<Footer />);
+    const link = screen.getByRole("link", { name: /follow us on youtube/i });
+    expect(link).toHaveAttribute("href", SOCIAL_URLS.youtube);
+  });
+
+  it("social links have target='_blank' and rel='noopener noreferrer'", () => {
+    render(<Footer />);
+    const links = [
+      screen.getByRole("link", { name: /follow us on facebook/i }),
+      screen.getByRole("link", { name: /follow us on instagram/i }),
+      screen.getByRole("link", { name: /follow us on youtube/i }),
+    ];
+    links.forEach((link) => {
+      expect(link).toHaveAttribute("target", "_blank");
+      expect(link).toHaveAttribute("rel", "noopener noreferrer");
+    });
+  });
+
+  it("social links have accessible aria-label attributes", () => {
+    render(<Footer />);
+    expect(screen.getByRole("link", { name: /follow us on facebook/i })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /follow us on instagram/i })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /follow us on youtube/i })).toBeInTheDocument();
   });
 });

@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Facebook, Instagram, Twitter, Youtube, Mail, Users, UserPlus } from "lucide-react";
 import { navLinks } from "@/lib/data/nav-links";
-import { SITE_CONFIG, PAYMENT_URLS, COMMUNITY_URLS } from "@/lib/constants";
+import { SITE_CONFIG, PAYMENT_URLS, COMMUNITY_URLS, SOCIAL_URLS } from "@/lib/constants";
 
 export default function Footer() {
   const quickLinks = navLinks.slice(0, 6);
@@ -52,9 +52,10 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <a
-                  href={SITE_CONFIG.facebookPageUrl}
+                  href={SOCIAL_URLS.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Follow us on Facebook"
                   className="flex items-center gap-2 text-gray-400 text-sm hover:text-white transition-colors"
                 >
                   <Facebook className="h-5 w-5" />
@@ -63,9 +64,10 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href={SITE_CONFIG.instagramUrl}
+                  href={SOCIAL_URLS.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Follow us on Instagram"
                   className="flex items-center gap-2 text-gray-400 text-sm hover:text-white transition-colors"
                 >
                   <Instagram className="h-5 w-5" />
@@ -77,6 +79,7 @@ export default function Footer() {
                   href={SITE_CONFIG.xUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Follow us on X"
                   className="flex items-center gap-2 text-gray-400 text-sm hover:text-white transition-colors"
                 >
                   <Twitter className="h-5 w-5" />
@@ -85,9 +88,10 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href={SITE_CONFIG.youtubeUrl}
+                  href={SOCIAL_URLS.youtube}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Follow us on YouTube"
                   className="flex items-center gap-2 text-gray-400 text-sm hover:text-white transition-colors"
                 >
                   <Youtube className="h-5 w-5" />
@@ -99,6 +103,7 @@ export default function Footer() {
                   href={COMMUNITY_URLS.facebookGroup}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Join our Facebook community group"
                   className="flex items-center gap-2 text-gray-400 text-sm hover:text-white transition-colors"
                 >
                   <Users className="h-5 w-5" />
