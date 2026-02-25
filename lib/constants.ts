@@ -21,7 +21,10 @@ export const SITE_CONFIG = {
   tagline: "One Town. One Team.",
   description: "Supporting Port Clinton student-athletes through community partnerships, fundraising, and volunteerism.",
   logoUrl: "/images/logo.png",
-  facebookPageUrl: "https://www.facebook.com/PCathleticboosters",
+  facebookPageUrl: "https://www.facebook.com/PortClintonAthleticBoosters",
+  instagramUrl: "https://www.instagram.com/portclintonathleticboosters/",
+  xUrl: "https://x.com/PCAthleticBoost",
+  youtubeUrl: "https://www.youtube.com/@PCAthleticBoosters",
   email: "info@pcathleticboosters.com",
   taxId: "34-1365685",
   mailingAddress: "P.O. Box 3, Port Clinton, Ohio 43452",
@@ -78,7 +81,7 @@ export const MAILCHIMP_GROUPS = {
 // after Facebook Group and SignUpGenius pages are created.
 export const COMMUNITY_URLS = {
   join: "/join",
-  facebookPage: "https://www.facebook.com/PCathleticboosters",
+  facebookPage: "https://www.facebook.com/PortClintonAthleticBoosters",
   facebookGroup: "https://facebook.com/groups/<GROUP_SLUG>",
   signupGenius: "https://www.signupgenius.com/<SIGNUP_SLUG>",
   mailchimpPreferences: "https://mailchimp.com/preferences/placeholder",
