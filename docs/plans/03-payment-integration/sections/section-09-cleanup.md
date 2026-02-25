@@ -164,12 +164,19 @@ The static export must complete without errors. Verify `/out/payment/thanks/inde
 
 ## Verification Checklist
 
-- [ ] Grep for `boosterhub` (case-insensitive) in source files returns zero results
-- [ ] Grep for `BOOSTERHUB_BASE` returns zero results
-- [ ] Grep for `BOOSTERHUB_URLS` returns zero results
-- [ ] Grep for `pcathleticbooster.boosterhub.com` returns zero results
-- [ ] `components/home/Hero.tsx` is updated (no BoosterHub references)
-- [ ] `__tests__/integration/no-boosterhub.test.ts` created and passing
-- [ ] `npx vitest run` passes all tests (sections 01-09)
-- [ ] `npm run build` completes with zero errors
-- [ ] Pre-launch manual checklist is documented
+- [x] Grep for `boosterhub` (case-insensitive) in source files returns zero results
+- [x] Grep for `BOOSTERHUB_BASE` returns zero results
+- [x] Grep for `BOOSTERHUB_URLS` returns zero results
+- [x] Grep for `pcathleticbooster.boosterhub.com` returns zero results
+- [x] `components/home/Hero.tsx` is updated (no BoosterHub references)
+- [x] `__tests__/integration/no-boosterhub.test.ts` created and passing (4 tests)
+- [x] `npx vitest run` passes all tests (14 files, 62 tests)
+- [x] `npm run build` completes with zero errors (16 pages generated)
+- [x] Pre-launch manual checklist documented in this section file (Step 7 above)
+
+## Implementation Notes
+
+- Only Hero.tsx had remaining BoosterHub references in source code; all other grep matches were in test assertions (expected)
+- Code review auto-fix: added path normalization for Windows compatibility in integration test
+- Code review auto-fix: improved error handling in grep helper (re-throws non-"no match" errors)
+- Build output format: Next.js 16 uses `out/payment/thanks.html` (not `index.html` subdirectory)

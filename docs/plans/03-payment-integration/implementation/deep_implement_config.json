@@ -45,6 +45,10 @@
     "section-07-initiatives": {
       "status": "complete",
       "commit_hash": "b7476f9"
+    },
+    "section-08-other-pages": {
+      "status": "complete",
+      "commit_hash": "a2a034f"
     }
   },
   "pre_commit": {
