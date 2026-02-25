@@ -136,3 +136,9 @@ const socialLinks = [
 ## Verification
 
 Run `npm test` -- all 7 tests should pass.
+
+## Implementation Notes
+
+- **Addition from code review**: Added `focus-visible:ring-2 focus-visible:ring-white` keyboard focus styles to social links for accessibility on the dark background.
+- Removed unused `vi` import from test file (not needed since no mocks required).
+- All 7 tests pass. Files created match plan exactly.

@@ -136,3 +136,9 @@ npm test -- --run __tests__/components/ui/CuratorFeed.test.tsx
 ```
 
 All six tests should pass. The component is ready for consumption by `SocialFeedSection` (section-03).
+
+## Implementation Notes
+
+- **Deviation from plan**: Changed `className={className ?? ""}` to `className={className}` during code review to match StripeBuyButton reference pattern. React omits the `class` attribute entirely when className is undefined, which is cleaner than rendering an empty `class=""`.
+- **Test adjustment**: Updated the "no className" test to assert `hasAttribute("class")` returns false instead of checking for empty string.
+- All 6 tests pass. Files created match plan exactly.

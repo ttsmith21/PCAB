@@ -6,7 +6,8 @@ import SponsorShowcase from "@/components/home/SponsorShowcase";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Button from "@/components/ui/Button";
 import FadeIn from "@/components/ui/FadeIn";
-import FacebookFeed from "@/components/ui/FacebookFeed";
+import SocialFeedSection from "@/components/ui/SocialFeedSection";
+import { CURATOR_CONFIG } from "@/lib/constants";
 
 export default function Home() {
   return (
@@ -42,9 +43,9 @@ export default function Home() {
           <FadeIn>
             <SectionHeading
               title="Live From the Field"
-              subtitle="Follow us on Facebook for the latest updates, photos, and game results."
+              subtitle="Follow us on Facebook, Instagram, and YouTube for the latest updates, photos, and game results."
             />
-            <FacebookFeed width={500} height={600} />
+            <SocialFeedSection feedId={CURATOR_CONFIG.feedId} />
           </FadeIn>
         </div>
       </section>

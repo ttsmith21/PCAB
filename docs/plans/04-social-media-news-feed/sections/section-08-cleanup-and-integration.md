@@ -188,3 +188,9 @@ Build should complete without errors.
 - [ ] Homepage renders SocialFeedSection with correct feedId
 - [ ] Footer contains links to Facebook, Instagram, and YouTube
 - [ ] SocialFollowBanner appears on the News page
+
+## Implementation Notes
+
+- SITE_CONFIG.facebookPageUrl kept as dead code (safe) per plan's "Either keep it or remove it" guidance. Can be cleaned up separately.
+- Integration tests follow plan spec. Some overlap with unit tests but serve as cross-page regression safety.
+- Full test suite: 108 tests passing. Build succeeds.

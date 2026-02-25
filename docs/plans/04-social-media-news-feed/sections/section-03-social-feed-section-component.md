@@ -268,3 +268,8 @@ return (
 ## Verification
 
 Run `npm test` -- all 7 tests should pass.
+
+## Implementation Notes
+
+- **Deviation from plan**: Changed className concatenation from template literal `` `min-h-[400px] ${className ?? ""}` `` to `["min-h-[400px]", className].filter(Boolean).join(" ")` during code review to avoid trailing whitespace when className is omitted.
+- All 7 tests pass. Files created match plan exactly.
