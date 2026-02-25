@@ -24,6 +24,10 @@
     "section-02-curator-feed-component": {
       "status": "complete",
       "commit_hash": "27c9f84"
+    },
+    "section-03-social-feed-section-component": {
+      "status": "complete",
+      "commit_hash": "b6770a3"
     }
   },
   "pre_commit": {
