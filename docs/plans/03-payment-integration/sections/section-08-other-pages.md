@@ -185,10 +185,16 @@ describe("ResourcesPage", () => {
 
 ## Checklist
 
-- [ ] Create all 4 test files. Run `npx vitest run` to verify they fail (red phase)
-- [ ] Update `components/home/ActionCards.tsx`: remove BOOSTERHUB_URLS, change membership to internal /membership
-- [ ] Update `app/store/page.tsx`: remove BOOSTERHUB_URLS, replace CTA with "coming soon" + /join link
-- [ ] Verify `app/volunteer/page.tsx`: confirm SignUpGenius link, no BoosterHub references
-- [ ] Update `app/resources/page.tsx`: remove "BoosterHub" from FAQ answer text
-- [ ] Run `npx vitest run` to verify all tests pass (green phase)
-- [ ] Run `npm run build` to verify static export completes
+- [x] Create all 4 test files. Run `npx vitest run` to verify they fail (red phase) -- 4 failures + 1 crash confirmed
+- [x] Update `components/home/ActionCards.tsx`: remove BOOSTERHUB_URLS, change membership to internal /membership
+- [x] Update `app/store/page.tsx`: remove BOOSTERHUB_URLS, replace CTA with "coming soon" + /join link
+- [x] Verify `app/volunteer/page.tsx`: confirm SignUpGenius link, no BoosterHub references -- zero code changes needed
+- [x] Update `app/resources/page.tsx`: remove "BoosterHub" from FAQ answer text
+- [x] Run `npx vitest run` to verify all tests pass (green phase) -- 10 tests passed
+- [ ] Run `npm run build` to verify static export completes (deferred to section-09)
+
+## Implementation Notes
+
+- Store test: changed `getByText` to `getAllByText` since "coming soon" appears in both heading and body text
+- Code review auto-fix: updated store page metadata description to reflect "coming soon" status
+- Code review auto-fix: removed unused `COMMUNITY_URLS` import from volunteer test

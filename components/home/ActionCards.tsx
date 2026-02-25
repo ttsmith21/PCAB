@@ -3,7 +3,7 @@
 import { IdCard, HandHeart, Megaphone } from "lucide-react";
 import Button from "@/components/ui/Button";
 import FadeIn from "@/components/ui/FadeIn";
-import { BOOSTERHUB_URLS, COMMUNITY_URLS } from "@/lib/constants";
+import { COMMUNITY_URLS } from "@/lib/constants";
 
 const actions = [
   {
@@ -11,8 +11,8 @@ const actions = [
     title: "Membership",
     description:
       "Join our booster family and support every student-athlete in Port Clinton. Members get exclusive perks and event access.",
-    href: BOOSTERHUB_URLS.membership,
-    external: true,
+    href: "/membership",
+    external: false,
     cta: "Join Now",
     borderColor: "border-pc-red",
     iconBgHover: "group-hover:bg-pc-red",

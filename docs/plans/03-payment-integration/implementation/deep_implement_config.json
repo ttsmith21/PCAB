@@ -21,6 +21,30 @@
     "section-01-test-setup": {
       "status": "complete",
       "commit_hash": "cced067"
+    },
+    "section-02-constants": {
+      "status": "complete",
+      "commit_hash": "31a7a5d"
+    },
+    "section-03-buy-button": {
+      "status": "complete",
+      "commit_hash": "4d7be2f"
+    },
+    "section-04-payment-thanks": {
+      "status": "complete",
+      "commit_hash": "7549786"
+    },
+    "section-05-navigation": {
+      "status": "complete",
+      "commit_hash": "f1bd78f"
+    },
+    "section-06-membership": {
+      "status": "complete",
+      "commit_hash": "daadb97"
+    },
+    "section-07-initiatives": {
+      "status": "complete",
+      "commit_hash": "b7476f9"
     }
   },
   "pre_commit": {

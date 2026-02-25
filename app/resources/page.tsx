@@ -44,7 +44,7 @@ export default function ResourcesPage() {
     {
       question: "How do I become a member?",
       answer:
-        "Visit our membership page, choose your tier, and complete registration through BoosterHub. Membership is open to anyone who wants to support Port Clinton athletics.",
+        "Visit our membership page, choose your tier, and complete your purchase right on the page. Membership is open to anyone who wants to support Port Clinton athletics.",
     },
     {
       question: "Is my donation tax-deductible?",

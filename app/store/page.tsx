@@ -4,12 +4,11 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import FadeIn from "@/components/ui/FadeIn";
-import { BOOSTERHUB_URLS } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Store",
   description:
-    "Shop official Port Clinton Athletic Boosters spirit wear. T-shirts, hoodies, hats, and game day gear for the whole family.",
+    "Official Port Clinton Athletic Boosters spirit wear is coming soon. Join our mailing list to be notified when the store launches.",
 };
 
 export default function StorePage() {
@@ -86,17 +85,15 @@ export default function StorePage() {
         <div className="container mx-auto px-4">
           <FadeIn>
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Ready to Shop?
+              Spirit Wear Coming Soon
             </h2>
             <p className="text-gray-300 mb-8 max-w-xl mx-auto">
-              Browse our full catalog and checkout on our secure store.
+              Our online spirit wear store is coming soon. Join our mailing list
+              to be the first to know when it launches.
             </p>
-            <Button href={BOOSTERHUB_URLS.store} external>
-              Shop Now
+            <Button href="/join">
+              Join Our Mailing List
             </Button>
-            <p className="text-sm text-gray-400 mt-4">
-              You&apos;ll be taken to our online store to browse and purchase.
-            </p>
           </FadeIn>
         </div>
       </section>
