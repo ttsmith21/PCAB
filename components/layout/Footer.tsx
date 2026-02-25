@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Facebook, Mail, Users, UserPlus } from "lucide-react";
+import { Facebook, Instagram, Twitter, Youtube, Mail, Users, UserPlus } from "lucide-react";
 import { navLinks } from "@/lib/data/nav-links";
 import { SITE_CONFIG, PAYMENT_URLS, COMMUNITY_URLS } from "@/lib/constants";
 
@@ -58,7 +58,40 @@ export default function Footer() {
                   className="flex items-center gap-2 text-gray-400 text-sm hover:text-white transition-colors"
                 >
                   <Facebook className="h-5 w-5" />
-                  <span>Facebook Page</span>
+                  <span>Facebook</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href={SITE_CONFIG.instagramUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-gray-400 text-sm hover:text-white transition-colors"
+                >
+                  <Instagram className="h-5 w-5" />
+                  <span>Instagram</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href={SITE_CONFIG.xUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-gray-400 text-sm hover:text-white transition-colors"
+                >
+                  <Twitter className="h-5 w-5" />
+                  <span>X / Twitter</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href={SITE_CONFIG.youtubeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-gray-400 text-sm hover:text-white transition-colors"
+                >
+                  <Youtube className="h-5 w-5" />
+                  <span>YouTube</span>
                 </a>
               </li>
               <li>
