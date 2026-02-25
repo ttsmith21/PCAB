@@ -86,3 +86,13 @@ export const COMMUNITY_URLS = {
   signupGenius: "https://www.signupgenius.com/<SIGNUP_SLUG>",
   mailchimpPreferences: "https://mailchimp.com/preferences/placeholder",
 } as const;
+
+export const SOCIAL_URLS = {
+  facebook: "https://www.facebook.com/PortClintonAthleticBoosters",
+  instagram: "https://www.instagram.com/portclintonathleticboosters/",
+  youtube: "https://www.youtube.com/@PCAthleticBoosters",
+} as const;
+
+export const CURATOR_CONFIG = {
+  feedId: "placeholder",
+} as const;
