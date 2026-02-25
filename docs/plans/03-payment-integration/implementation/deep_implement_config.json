@@ -49,6 +49,10 @@
     "section-08-other-pages": {
       "status": "complete",
       "commit_hash": "a2a034f"
+    },
+    "section-09-cleanup": {
+      "status": "complete",
+      "commit_hash": "1df038d"
     }
   },
   "pre_commit": {
