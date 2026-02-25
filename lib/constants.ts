@@ -1,23 +1,19 @@
-// TODO: Replace placeholder URLs with real Stripe Payment Links
-// from the Stripe Dashboard after products are created.
 export const PAYMENT_URLS = {
-  membership_rookie: "https://buy.stripe.com/placeholder_membership_rookie",
-  membership_captain: "https://buy.stripe.com/placeholder_membership_captain",
-  membership_allstar: "https://buy.stripe.com/placeholder_membership_allstar",
-  membership_mvp: "https://buy.stripe.com/placeholder_membership_mvp",
-  donate: "https://buy.stripe.com/placeholder_donate",
-  donate_monthly_5: "https://buy.stripe.com/placeholder_donate_monthly_5",
-  donate_monthly_10: "https://buy.stripe.com/placeholder_donate_monthly_10",
-  donate_monthly_25: "https://buy.stripe.com/placeholder_donate_monthly_25",
-  donate_monthly_50: "https://buy.stripe.com/placeholder_donate_monthly_50",
-  donate_monthly_100: "https://buy.stripe.com/placeholder_donate_monthly_100",
-  customer_portal: "https://billing.stripe.com/p/login/placeholder",
+  membership_rookie: "https://buy.stripe.com/test_fZu4gzgVOdd0eg756m4wM00",
+  membership_captain: "https://buy.stripe.com/test_bJecN5eNG3Cqgof3Ua4wM01",
+  membership_allstar: "https://buy.stripe.com/test_3cIdR97le2ymgofbmC4wM02",
+  membership_mvp: "https://buy.stripe.com/test_fZufZhdJC0qe7RJbmC4wM03",
+  donate: "https://donate.stripe.com/test_14AfZhfRKfl88VNgGW4wM04",
+  donate_monthly_5: "https://buy.stripe.com/test_9B68wP8pi6OCgof1M24wM05",
+  donate_monthly_10: "https://buy.stripe.com/test_fZu3cv6ha1ui1tl1M24wM08",
+  donate_monthly_25: "https://buy.stripe.com/test_5kQ3cvdJCeh49ZRbmC4wM07",
+  donate_monthly_50: "https://buy.stripe.com/test_aFa00jaxqgpc1tl8aq4wM09",
+  donate_monthly_100: "https://buy.stripe.com/test_eVq4gzgVOdd0b3V2Q64wM0a",
+  customer_portal: "https://billing.stripe.com/p/login/test_fZu4gzgVOdd0eg776m4wM00",
 } as const;
 
-// TODO: Replace placeholder with real Stripe publishable key
-// from Stripe Dashboard > Developers > API keys.
 export const STRIPE_CONFIG = {
-  publishableKey: "pk_test_placeholder",
+  publishableKey: "pk_test_51T4VgEHSqrjFUVpy6AkdYNaCqRVkzzJgstY8lOZ0CADooNuRD2X24DUZTdulfZBipS1q39iJiPGVFJEIqCKvHfnZ00auS18Ddl",
 } as const;
 
 export const SITE_CONFIG = {
