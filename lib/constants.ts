@@ -32,29 +32,49 @@ export const SITE_CONFIG = {
   founded: 1983,
 } as const;
 
-// TODO: Replace placeholder values with real Mailchimp credentials from
-// Audience > Settings > Audience name and defaults after account setup.
 export const MAILCHIMP_CONFIG = {
-  formAction: "https://<dc>.list-manage.com/subscribe/post",
-  userId: "<USER_ID>",
-  audienceId: "<LIST_ID>",
-  honeypotFieldName: "b_<USER_ID>_<LIST_ID>",
+  formAction: "https://pcathleticboosters.us12.list-manage.com/subscribe/post",
+  userId: "48989a20796192c7b515dbcb3",
+  audienceId: "2414e05025",
+  honeypotFieldName: "b_48989a20796192c7b515dbcb3_2414e05025",
 } as const;
 
-// TODO: Replace <GROUP_ID> values and populate options from Mailchimp
-// Forms > Form builder > field settings after audience groups are configured.
 export const MAILCHIMP_GROUPS = {
   sports: {
-    groupId: "<GROUP_ID>",
-    options: {} as Record<string, string>,
+    groupId: "61844",
+    options: {
+      "Football": "1",
+      "Basketball": "2",
+      "Baseball": "4",
+      "Softball": "8",
+      "Soccer": "16",
+      "Volleyball": "32",
+      "Track & Field": "64",
+      "Wrestling": "128",
+      "Swimming": "256",
+      "Tennis": "512",
+      "Golf": "1024",
+      "Cross Country": "2048",
+    } as Record<string, string>,
   },
-  level: {
-    groupId: "<GROUP_ID>",
-    options: {} as Record<string, string>,
+  graduationYear: {
+    groupId: "61847",
+    options: {
+      "2026": "4096",
+      "2027": "8192",
+      "2028": "16384",
+      "2029": "32768",
+    } as Record<string, string>,
   },
   role: {
-    groupId: "<GROUP_ID>",
-    options: {} as Record<string, string>,
+    groupId: "61846",
+    options: {
+      "Parent": "65536",
+      "Student-Athlete": "131072",
+      "Coach": "262144",
+      "Community Member": "524288",
+      "Alumni": "1048576",
+    } as Record<string, string>,
   },
 } as const;
 
