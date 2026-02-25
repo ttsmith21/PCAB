@@ -1,0 +1,29 @@
+{
+  "plugin_root": "C:\\Users\\tsmith\\.claude\\plugins\\cache\\piercelamb-plugins\\deep-implement\\0.2.0",
+  "sections_dir": "C:\\Users\\tsmith\\OneDrive - Northern Manufacturing Co., Inc\\Documents\\GitHub\\PC-Boosters-Web\\docs\\plans\\04-social-media-news-feed\\sections",
+  "target_dir": "C:\\Users\\tsmith\\OneDrive - Northern Manufacturing Co., Inc\\Documents\\GitHub\\PC-Boosters-Web",
+  "state_dir": "C:\\Users\\tsmith\\OneDrive - Northern Manufacturing Co., Inc\\Documents\\GitHub\\PC-Boosters-Web\\docs\\plans\\04-social-media-news-feed\\implementation",
+  "git_root": "C:\\Users\\tsmith\\OneDrive - Northern Manufacturing Co., Inc\\Documents\\GitHub\\PC-Boosters-Web",
+  "commit_style": "conventional",
+  "test_command": "uv run pytest",
+  "sections": [
+    "section-01-constants-and-dependencies",
+    "section-02-curator-feed-component",
+    "section-03-social-feed-section-component",
+    "section-04-social-follow-banner-component",
+    "section-05-news-page-redesign",
+    "section-06-homepage-modification",
+    "section-07-footer-modification",
+    "section-08-cleanup-and-integration"
+  ],
+  "sections_state": {},
+  "pre_commit": {
+    "present": false,
+    "type": "none",
+    "config_file": null,
+    "native_hook": null,
+    "may_modify_files": false,
+    "detected_formatters": []
+  },
+  "created_at": "2026-02-25T01:55:45.845504+00:00"
+}
