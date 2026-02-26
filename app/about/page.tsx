@@ -40,8 +40,13 @@ export default function AboutPage() {
   return (
     <main>
       {/* Hero */}
-      <section className="pt-32 pb-20 bg-pc-dark text-white">
-        <div className="container mx-auto px-4 text-center">
+      <section className="relative pt-32 pb-20 text-white overflow-hidden">
+        <div
+          className="absolute inset-0 bg-pc-dark bg-cover bg-center"
+          style={{ backgroundImage: "url('/images/site/web-pic-fairground-photo.jpg')" }}
+        />
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="relative container mx-auto px-4 text-center">
           <FadeIn>
             <h1 className="text-5xl md:text-6xl font-bold mb-4">About Us</h1>
             <p className="text-lg text-gray-300 max-w-2xl mx-auto">

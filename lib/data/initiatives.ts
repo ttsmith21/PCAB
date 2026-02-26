@@ -33,7 +33,7 @@ export const initiatives: Initiative[] = [
     title: "Scholarships",
     description:
       "Direct financial aid ensuring every student can participate in athletics regardless of family finances.",
-    image: "/images/initiatives/scholarships.jpg",
+    image: "/images/initiatives/scholarships.png",
     category: "Future",
   },
 ];

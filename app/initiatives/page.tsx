@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Button from "@/components/ui/Button";
 import FadeIn from "@/components/ui/FadeIn";
@@ -47,11 +48,13 @@ export default function InitiativesPage() {
             <FadeIn delay={0.15}>
               <div className="max-w-6xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden">
                 <div className="md:flex">
-                  {/* Photo placeholder — larger for featured */}
-                  <div className="w-full md:w-1/2 h-72 md:h-auto min-h-[320px] bg-gray-200 flex-shrink-0 flex items-center justify-center">
-                    <span className="text-gray-400 text-sm">
-                      Photo Coming Soon
-                    </span>
+                  <div className="relative w-full md:w-1/2 h-72 md:h-auto min-h-[320px] bg-gray-200 flex-shrink-0">
+                    <Image
+                      src={featuredInitiative.image}
+                      alt={featuredInitiative.title}
+                      fill
+                      className="object-cover"
+                    />
                   </div>
                   {/* Content */}
                   <div className="w-full md:w-1/2 p-10 md:p-12 flex flex-col justify-center">
@@ -87,11 +90,13 @@ export default function InitiativesPage() {
               <FadeIn key={initiative.title} delay={index * 0.1}>
                 <div className="bg-white rounded-2xl shadow-lg overflow-hidden border-l-4 border-pc-red hover:shadow-xl transition-all duration-300">
                   <div className="md:flex">
-                    {/* Photo placeholder */}
-                    <div className="md:w-80 h-56 bg-gray-200 flex-shrink-0 flex items-center justify-center">
-                      <span className="text-gray-400 text-sm">
-                        Photo Coming Soon
-                      </span>
+                    <div className="relative md:w-80 h-56 bg-gray-200 flex-shrink-0">
+                      <Image
+                        src={initiative.image}
+                        alt={initiative.title}
+                        fill
+                        className="object-cover"
+                      />
                     </div>
                     {/* Content */}
                     <div className="p-8 flex flex-col justify-center">

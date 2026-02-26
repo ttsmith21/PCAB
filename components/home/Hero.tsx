@@ -5,9 +5,11 @@ import { PAYMENT_URLS } from "@/lib/constants";
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background — swap the bg-pc-dark for a background image when ready */}
-      {/* Example: style={{ backgroundImage: "url('/images/hero.jpg')" }} + bg-cover bg-center */}
-      <div className="absolute inset-0 bg-pc-dark" />
+      {/* Background image */}
+      <div
+        className="absolute inset-0 bg-pc-dark bg-cover bg-center"
+        style={{ backgroundImage: "url('/images/site/high_school_field_aerial__26__800.jpg')" }}
+      />
 
       {/* Dark overlay layers for contrast */}
       <div className="absolute inset-0 bg-black/40" />

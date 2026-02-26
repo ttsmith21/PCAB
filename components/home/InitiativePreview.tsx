@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Button from "@/components/ui/Button";
 import FadeIn from "@/components/ui/FadeIn";
@@ -20,9 +21,14 @@ export default function InitiativePreview() {
           {featured.map((initiative, index) => (
             <FadeIn key={initiative.title} delay={index * 0.1}>
               <div className="bg-white rounded-xl shadow-md border-l-4 border-pc-red overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                {/* Photo placeholder */}
                 <div className="relative h-48 bg-gray-200">
-                  <span className="absolute top-3 left-3 bg-pc-red text-white text-xs font-oswald uppercase tracking-wider px-3 py-1 rounded-full">
+                  <Image
+                    src={initiative.image}
+                    alt={initiative.title}
+                    fill
+                    className="object-cover"
+                  />
+                  <span className="absolute top-3 left-3 bg-pc-red text-white text-xs font-oswald uppercase tracking-wider px-3 py-1 rounded-full z-10">
                     {initiative.category}
                   </span>
                 </div>
